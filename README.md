@@ -9,14 +9,8 @@ This *browser based web application to ...
 *This is a line to mimic the conflict, adding line chaging again
 * Hi my name is Cody. That's all.
 * Hi my name is Wilson!
-<<<<<<< HEAD
-
-* Hi my name is Cody. That's all. Something else added..add
 * Hi my name is Shen! 
-* creating a second line
-=======
-	
->>>>>>> fdc4b33aeceeb1d44e7392298a46fb7f8d572d37
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
