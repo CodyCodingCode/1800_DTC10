@@ -12,6 +12,7 @@ This browser based web application to ...
 * Hi my name is Wilson!
 
 * Hi my name is Cody. That's all. Something else added
+* This is a test to make a conflict
 	
 ## Technologies
 Technologies used for this project:
