@@ -15,6 +15,7 @@ This is a line to mimic the conflict, adding line chaging again
 * Hi my name is Wilson!
 
 * Hi my name is Cody. That's all. Something else added
+* This is a test to make a conflict
 	
 >>>>>>> ba29cd61121cc558a2255a344d3a9b7e7c99fc8d
 ## Technologies
