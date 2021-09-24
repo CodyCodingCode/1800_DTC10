@@ -5,15 +5,16 @@
 * [Contents](#content)
 
 ## General Info
-This *browser based web application to ...
-*This is a line to mimic the conflict, adding line chaging again
+This browser based web application to ...
+This is a line to mimic the conflict, adding line chaging again
 * Hi my name is Cody. That's all.
 
 * Something else tested
 * Hi my name is Wilson!
 
 * Hi my name is Cody. That's all. Something else added
-* Hi my name is Shen!
+* This is a test to make a conflict
+	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
