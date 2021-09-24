@@ -6,9 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-<<<<<<< HEAD
 This is a line to mimic the conflict, adding line chaging again
-=======
 * Hi my name is Cody. That's all.
 
 * Something else tested
@@ -21,7 +19,6 @@ This is a line to mimic the conflict, adding line chaging again
 * This is a test to make a conflict
 >>>>>>> 3e0776c9ce086cfcac8a6f194105e24894784f61
 	
->>>>>>> ba29cd61121cc558a2255a344d3a9b7e7c99fc8d
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
