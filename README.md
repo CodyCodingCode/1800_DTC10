@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-This is a line to mimic the conflict
+This is a line to mimic the conflict, adding line chaging again
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
