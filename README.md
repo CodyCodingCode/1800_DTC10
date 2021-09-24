@@ -6,7 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-This is a line to mimic the conflict
+* Hi my name is Cody. That's all. Something else added
+	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
