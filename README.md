@@ -6,7 +6,9 @@
 
 ## General Info
 This browser based web application to ...
-* Hi my name is Cody. That's all. Something else added
+* Hi my name is Cody. That's all.
+
+* Something else tested
 	
 ## Technologies
 Technologies used for this project:
