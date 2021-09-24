@@ -8,6 +8,8 @@
 This browser based web application to ...
 * Hi my name is Wilson!
 
+* Hi my name is Cody. That's all. Something else added
+	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
