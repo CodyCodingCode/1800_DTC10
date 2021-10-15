@@ -10,7 +10,6 @@ This *browser based web application to ...
 * Hi my name is Cody. That's all.
 * Hi my name is Wilson!
 * Hi my name is Shen!
-* Test Change
 
 ## Technologies
 Technologies used for this project:
