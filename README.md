@@ -11,24 +11,6 @@ This *browser based web application to ...
 * Hi my name is Wilson!
 * Hi my name is Shen!
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-* Hi my name is Cody. That's all. Something else added
-<<<<<<< HEAD
-* Creating a conflict on purpose
-=======
-* This is a test to make a conflict
->>>>>>> 3e0776c9ce086cfcac8a6f194105e24894784f61
-=======
-* Hi my name is Cody. That's all. Something else added..add
-* Hi my name is Shen! 
-* creating a second line
-=======
->>>>>>> 01022b3a1b0052c0916520db0e90e0f645d174f6
-	
->>>>>>> fdc4b33aeceeb1d44e7392298a46fb7f8d572d37
-=======
->>>>>>> 16d1543d91e16224e3d06f1dd893d4ec4afa0792
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
