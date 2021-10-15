@@ -9,7 +9,8 @@ This *browser based web application to ...
 *This is a line to mimic the conflict, adding line chaging again
 * Hi my name is Cody. That's all.
 * Hi my name is Wilson!
-* Hi my name is Shen! 
+* Hi my name is Shen!
+* Test Change
 
 ## Technologies
 Technologies used for this project:
