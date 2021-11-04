@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+  <link rel="stylesheet" href="./quiz_pageCSS.css">
+  <title>1800 Quiz/Upgrade Page</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">User Profile</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <img src="./images/upgrade.png" height="30px" width="30px">
+            <a class="nav-link active" aria-current="page" href="#">Upgrades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+
+          <li class="nav-item">
+            <img src="./images/glossary.jpg" height="30px" width="30px">
+            <a class="nav-link" href="#">Glossary</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Donate</a>
+          </li>
+
+          <li class="nav-item">
+            <img src="./images/Settings.png" height="30px" width="30px">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+
+    <h1 id="points">
+      9999 Points
+    </h1>
+
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btnradio_Buy" id="btnradio1" autocomplete="off" checked>
+      <label class="btn btn-outline-primary" for="btnradio1">Buy 1</label>
+
+      <input type="radio" class="btn-check" name="btnradio_Buy" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio2">Buy 10</label>
+
+      <input type="radio" class="btn-check" name="btnradio_Buy" id="btnradio3" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio3">Buy All</label>
+    </div>
+
+    <br>
+
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btnradio_Playstyle" id="btnradio1" autocomplete="off" checked>
+      <label class="btn btn-outline-primary" for="btnradio1">Idle</label>
+
+      <input type="radio" class="btn-check" name="btnradio_Playstyle" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio2">Active</label>
+
+      <input type="radio" class="btn-check" name="btnradio_Plastyle" id="btnradio3" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio3">Mixed</label>
+    </div>
+
+    <br><br><br>
+
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btnradio_notation" id="btnradio1" autocomplete="off" checked>
+      <label class="btn btn-outline-primary" for="btnradio1">Word Form</label>
+
+      <input type="radio" class="btn-check" name="btnradio_notation" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio2">Decimal</label>
+
+      <input type="radio" class="btn-check" name="btnradio_notation" id="btnradio3" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio3">Scientific</label>
+    </div>
+
+    <br>
+
+    <div id="group1">
+      <label style="width: 100px;">Dark Mode</label>
+      <input type="radio" value="val1" name="group1">
+      <label style="width: 50px;">On</label>
+      <input type="radio" value="val2" name="group1">
+      <label style="width: 50px;">Off</label>
+    </div>
+
+  </header>
+  <div id="content">
+    <main class="nested">
+
+      <div class="double">
+        <img src="./images/covid.jpg" alt="Covid/Vaccine" width="350" height="165" class="center">
+        <h4>
+          What to watch out for regarding Covid-19 and Vaccine Disinformation (Hot)
+        </h4>
+        <button class="btn btn-outline-success" type="submit">Explore</button>
+      </div>
+
+      <div class="double">
+        <img src="./images/twitter.png" alt="Twitter Icon" width="350" height="165" class="center">
+        <h4>
+          How Twitter is shaping how you think and things you can do to shield yourself
+        </h4>
+        <button class="btn btn-outline-success" type="submit">Explore</button>
+      </div>
+
+      <div class="double">
+        <img src="./images/bots.jpg" alt="Bots" width="350" height="165" class="center">
+        <h4>
+          How bots artificially inflate the importance of and propogate the popularity of fake news
+        </h4>
+        <button class="btn btn-outline-success" type="submit">Explore</button>
+      </div>
+
+      <div class="double">
+        <img src="./images/fact checking.jpg" alt="fact_checking" width="350" height="165" class="center">
+        <h4>
+          Are you fact-checking everything you read? Tips and tricks to get you started
+        </h4>
+        <button class="btn btn-outline-success" type="submit">Explore</button>
+      </div>
+
+      <div class="double">
+        <img src="./images/political.png" alt="Political" width="350" height="165" class="center">
+        <h4>
+          Navigating yourself through the current policital environment, identifying propaganda
+        </h4>
+        <button class="btn btn-outline-success" type="submit">Explore</button>
+      </div>
+
+      <div class="double">
+        <img src="./images/News_Networks.jpg" alt="News_Networks" width="350" height="165" class="center">
+        <h4>
+          Major News Networks, The Good, The Bad, The Ugly, and everything in between
+        </h4>
+        <button class="btn btn-outline-success" type="submit">Explore</button>
+      </div>
+
+      <div class="double">
+        <img src="./images/social_media.jpg" alt="Social_Media" width="350" height="165" class="center">
+        <h4>
+          The pitfalls of social media and things you can do to protect yourself from false information
+        </h4>
+        <button class="btn btn-outline-success" type="submit">Explore</button>
+      </div>
+
+      <div class="double">
+        <img src="./images/alternative.jpg" alt="Alternative_Media" width="350" height="165" class="center">
+        <h4>
+          Alternative media: What it's all about and whether it's safe to consume and explore
+        </h4>
+        <button class="btn btn-outline-success" type="submit">Explore</button>
+      </div>
+
+    </main>
+  </div>
+</body>
+
+</html>
