@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>DTC-10 - 1800 Project</title>
+    <meta name="comp1800DTC10 template" content="database_template">
+  
+    <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="styles/my_style.css">
+
+    <!--Bootstrap CSS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+  
+    <!-- Bootstrap FirebaseUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  
+    <!-- Link to the api keys for your firebase project -->
+    <script src="/scripts/firebaseAPI_DTC10.js"></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success text-light text-md-center">
+      <div class="container-fluid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
+          <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+          <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
+        </svg>
+  
+        <a class="navbar-brand" href="#">News Tycoon</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+            <li class="nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
+                <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+                <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
+              </svg>
+              <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+            </li>
+  
+            <li class="nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-dice-5" viewBox="0 0 16 16">
+                <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3z"/>
+                <path d="M5.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm4-4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+              </svg>
+              <a class="nav-link" href="#">Quizzes</a>
+            </li>
+  
+            <li class="nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+                <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+                <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+              </svg>
+              <a class="nav-link" href="#">Glossary</a>
+            </li>
+  
+            <li class="nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+              </svg>
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Settings</a>
+            </li>
+  
+            <li class="nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-power" viewbox="0 0 16 16">
+                <path d="M7.5 1v7h1V1h-1z"/>
+                <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+              </svg>
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Log Out</a>
+            </li>
+  
+          </ul>
+  
+        </div>
+  
+      </div>
+    </nav>
+
+
+
+
+    <!----------------------------------------------->
+    <!-- The following is the Account Profile form -->
+    <!----------------------------------------------->
+    <div class="container">
+      <h1>User Profile </h1>
+      <form>
+          <fieldset class="mb-3" id="personalInfoFields" disabled>
+              <div class="form-group">
+                  <label >User Name</label>
+                  <input type="text" id="usernameInput" class="form-control" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                  <label >Country</label>
+                  <input type="text" id="countryInput" class="form-control" placeholder="Enter your Home Country">
+              </div>
+              <div class="form-group">
+                  <label >Interests</label>
+                  <input type="text" id="interestsInput" class="form-control" placeholder="Enter any interests you have">
+              </div>
+          </fieldset>
+          <div class="d-flex justify-content-end mt-5">
+              <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+              <span style="width: 10px"></span>
+              <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+          </div>
+      </form>
+  </div>
+
+
+
+
+  <!--Code to create FireBase Functionality-->
+  <script>
+    var currentUser;
+
+    function populateInfo() {
+      firebase.auth().onAuthStateChanged(user => {
+        //Check if user is signed in:
+        if (user) {
+
+          //go to correct user document by referencing to userid
+          currentUser = db.collection("users").doc(user.uid)
+          //get the document from the current user
+          currentUser.get()
+            .then(userDoc => {
+              //get the data fields of the user
+              var userName = userDoc.data().name;
+              var userCountry = userDoc.data().country;
+              var userInterests = userDoc.data().interests;
+
+              //If the data fields are not empty, then write them in to the form'
+              if (userName != null) {
+                document.getElementById("usernameInput").value = userName;
+              }
+
+              if (userCountry != null) {
+                document.getElementById("countryInput").value = userCountry;
+              }
+
+              if (userInterests != null) {
+                document.getElementById("interestsInput").value = userInterests;
+              }
+
+            })
+        } else {
+          // No user is signed in.
+          console.log("No User is signed in")
+        }
+      });
+    }
+
+    //call function to run it
+    populateInfo();
+
+    function editUserInfo() {
+      //Enable the form fields
+      document.getElementById('personalInfoFields').disabled = false;
+    }
+
+    function saveUserInfo() {
+      userName = document.getElementById('usernameInput').value;
+      userCountry = document.getElementById('countryInput').value;
+      userInterests = document.getElementById('interestsInput').value;
+
+      currentUser.update({
+        name: userName,
+        country: userCountry,
+        interests: userInterests,
+      })
+
+      .then(() => {
+        console.log("Document successfully updated!")
+
+      })
+      
+      document.getElementById("personalInfoFields").disabled = true;
+
+    }
+
+  </script>
+
+  </body>
+
+</html>
