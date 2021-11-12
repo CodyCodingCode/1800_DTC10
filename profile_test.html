@@ -25,6 +25,7 @@
 
     <!-- Link to the api keys for your firebase project -->
     <script src="/scripts/firebaseAPI_DTC10.js"></script>
+
     <title>Main Page</title>
     <style>
         .card {
@@ -94,7 +95,7 @@
 
                     <li class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                            class="bi bi-speedometer" viewBox="0 0 16 16">
+                            class="bi bi-speedometer" viewbox="0 0 16 16">
                             <path
                                 d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
                             <path fill-rule="evenodd"
@@ -105,7 +106,7 @@
 
                     <li class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                            class="bi bi-dice-5" viewBox="0 0 16 16">
+                            class="bi bi-dice-5" viewbox="0 0 16 16">
                             <path
                                 d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3z" />
                             <path
@@ -116,7 +117,7 @@
 
                     <li class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                            class="bi bi-newspaper" viewBox="0 0 16 16">
+                            class="bi bi-newspaper" viewbox="0 0 16 16">
                             <path
                                 d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
                             <path
@@ -127,7 +128,7 @@
 
                     <li class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                            class="bi bi-gear" viewBox="0 0 16 16">
+                            class="bi bi-gear" viewbox="0 0 16 16">
                             <path
                                 d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
                             <path
@@ -169,9 +170,19 @@
         <div class="card-group">
 
             <div class="card" style="width: 18rem;">
-                <img src="" class="card-img-top">
+                <img src="/." class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title" id="quote-goes-here">upgrade name</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                    <a href="review.html" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="/." class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title" id="quote-goes-here2">upgrade name</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
                     </p>
                     <a href="#" class="btn btn-primary">Read more</a>
@@ -179,19 +190,9 @@
             </div>
 
             <div class="card" style="width: 18rem;">
-                <img src="" class="card-img-top">
+                <img src="/." class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title" id="quote-goes-here">upgrade name</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <a href="#" class="btn btn-primary">Read more</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title" id="quote-goes-here">upgrade name</h5>
+                    <h5 class="card-title" id="quote-goes-here1">upgrade name</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
                     </p>
                     <a href="#" class="btn btn-primary">Read more</a>
@@ -234,17 +235,52 @@
         </footer>
     </div>
     <script>
+        function populateInfo() {
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
 
-        function read_display_upgrade() {
-            db.collection("upgrade").doc("upgrade")                                                      //name of the collection and documents should matach excatly with what you have in Firestore
-                .onSnapshot(Upgrade1 => {                                                               //arrow notation
-                    console.log(upgradedoc.data());                          //.data() returns data object
-                    document.getElementById("quote-goes-here").innerHTML = upgrade.data().upgrade;      //using javascript to display the data on the right place
-                    //$('#quote-goes-here').text(c.data().quote);                                       //using jquery object dot notation
-                    //$("#quote-goes-here").text(c.data()["quote"]);                                     //using json object indexing
-                })
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid)
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get the data fields of the user
+                            var userName = userDoc.data().name;
+                            var userSchool = userDoc.data().school;
+                            var userCity = userDoc.data().city;
+
+                            //if the data fields are not empty, then write them in to the form.
+                            if (userName != null) {
+                                document.getElementById("nameInput").value = userName;
+                            }
+                            if (userSchool != null) {
+                                document.getElementById("schoolInput").value = userSchool;
+                            }
+                            if (userCity != null) {
+                                document.getElementById("cityInput").value = userCity;
+                            }
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("No user is signed in");
+                }
+            });
         }
-        read_display_upgrade()
+
+        //call the function to run it 
+        populateInfo();
+
+        // function read_display_upgrade() {
+        //     db.collection("upgrade").doc("upgrade")                                                      //name of the collection and documents should matach excatly with what you have in Firestore
+        //         .onSnapshot(Upgrade1 => {                                                               //arrow notation
+        //             console.log(upgradedoc.data());                          //.data() returns data object
+        //             document.getElementById("quote-goes-here").innerHTML = upgrade.data().upgrade;      //using javascript to display the data on the right place
+        //             //$('#quote-goes-here').text(c.data().quote);                                       //using jquery object dot notation
+        //             //$("#quote-goes-here").text(c.data()["quote"]);                                     //using json object indexing
+        //         })
+        // }
+        // read_display_upgrade()
 
     </script>
 </body>
