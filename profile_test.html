@@ -7,6 +7,24 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!--Bootstrap CSS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+    <!-- Bootstrap FirebaseUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="/scripts/firebaseAPI_DTC10.js"></script>
     <title>Main Page</title>
     <style>
         .card {
@@ -147,6 +165,42 @@
         <p><button>Contact</button></p>
     </div>
 
+    <div class="container">
+        <div class="card-group">
+
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title" id="quote-goes-here">upgrade name</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                    <a href="#" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title" id="quote-goes-here">upgrade name</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                    <a href="#" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title" id="quote-goes-here">upgrade name</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                    <a href="#" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
     </div><br><br>
 
@@ -179,6 +233,20 @@
             </ul>
         </footer>
     </div>
+    <script>
+
+        function read_display_upgrade() {
+            db.collection("upgrade").doc("upgrade")                                                      //name of the collection and documents should matach excatly with what you have in Firestore
+                .onSnapshot(Upgrade1 => {                                                               //arrow notation
+                    console.log(upgradedoc.data());                          //.data() returns data object
+                    document.getElementById("quote-goes-here").innerHTML = upgrade.data().upgrade;      //using javascript to display the data on the right place
+                    //$('#quote-goes-here').text(c.data().quote);                                       //using jquery object dot notation
+                    //$("#quote-goes-here").text(c.data()["quote"]);                                     //using json object indexing
+                })
+        }
+        read_display_upgrade()
+
+    </script>
 </body>
 
 </html>

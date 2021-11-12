@@ -146,16 +146,16 @@
     <h1 class="display-5 fw-bold">Glossary</h1>
   </div><br><br>
   <div class="flex-container">
-    <div class="box" button type="button" onclick="button()">Box 1 </div>
-    <div class="box">Box 2 - My height will follow Box 1.</div>
+    <div class="box" button type="button" onclick="button()">Box 1 </div><a href="feedback.html" class="link-primary" onclick="setQuizData('...')" >Give Feedback</a>
+    <div class="box">Box 2 - My height will follow Box 1.</div><a href="feedback.html" class="link-primary" onclick="setQuizData('...')">Give Feedback</a>
   </div>
   <div class="flex-container">
-    <div class="box">Box 1 .</div>
-    <div class="box">Box 2 - My height will follow Box 1.</div>
+    <div class="box">Box 1 .</div><a href="feedback.html" class="link-primary" onclick="setQuizData('...')" >Give Feedback</a>
+    <div class="box">Box 2 - My height will follow Box 1.</div><a href="feedback.html" class="link-primary" onclick="setQuizData('...')">Give Feedback</a>
   </div>
   <div class="flex-container">
-    <div class="box">Box 1 .</div>
-    <div class="box">Box 2 - My height will follow Box 1.</div>
+    <div class="box">Box 1 .</div><a href="feedback.html" class="link-primary" onclick="setQuizData('...')">Give Feedback</a>
+    <div class="box">Box 2 - My height will follow Box 1.</div><a href="feedback.html" class="link-primary" onclick="setQuizData('...')">Give Feedback</a>
   </div>
 
 
@@ -208,6 +208,9 @@
         }
       });
     }
+    function setQuizData(id){
+            localStorage.setItem ('QuizID', id);
+}
   </script>
 </body>
 
