@@ -47,14 +47,14 @@
     </div>
     <div class="d-flex align-items-center pt-3">
       <div id="prev"> <button class="btn btn-primary">Back</button> </div>
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" onclick="doQuiz()">Submitt</button> </div>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" onclick="doQuiz()">Submit</button> </div>
     </div>
   </div>
 
   <script>
-    let topicID = localStorage.getItem("userID");
+    let topicID = localStorage.getItem("topicID");
 
-    db.collection("users").where("code", "==", userID)
+    db.collection("users").where("code", "==", topicID)
       .get()
       .then(queryuser => {
         //see how many results you have got from the query
