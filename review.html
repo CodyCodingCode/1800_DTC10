@@ -30,7 +30,9 @@
 </head>
 
 <body>
-    <h1>Review for <span id="HikeName"></span></h1>
+   
+    <div class="container">
+        <h1>Review for <span id="HikeName"></span></h1>
     <form>
         <div class="form-group">
             <label for="exampleFormControlInput1">Add a title</label>
@@ -97,6 +99,7 @@
             </div>
         </div>
     </form>
+</div>
 
 
 
@@ -112,35 +115,36 @@
 
 
     <script>
-        db.collection("Hikes").where("code", "==", hikeID)
-            .get()
-            .then(queryHike => {
-                //see how many results you have got from the query
-                size = queryHike.size;
-                // get the documents of query
-                Hikes = queryHike.docs;
+        // db.collection("Hikes").where("code", "==", hikeID)
+        //     .get()
+        //     .then(queryHike => {
+        //         //see how many results you have got from the query
+        //         size = queryHike.size;
+        //         // get the documents of query
+        //         Hikes = queryHike.docs;
 
-                // We want to have one document per hike, so if the the result of
-                //the query is more than one, we can check it right now and clean the DB if needed.
-                if (size = 1) {
-                    var thisHike = Hikes[0].data();
-                    name = thisHike.name;
-                    document.getElementById("HikeName").innerHTML = name;
-                } else {
-                    console.log("Query has more than one data")
-                }
-            })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
-            });
+        //         // We want to have one document per hike, so if the the result of
+        //         //the query is more than one, we can check it right now and clean the DB if needed.
+        //         if (size = 1) {
+        //             var thisHike = Hikes[0].data();
+        //             name = thisHike.name;
+        //             document.getElementById("HikeName").innerHTML = name;
+        //         } else {
+        //             console.log("Query has more than one data")
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         console.log("Error getting documents: ", error);
+        //     });
         function writeReview() {
+            
             let Title = document.getElementById("title").value;
             let Level = document.getElementById("level").value;
             let Season = document.getElementById("season").value;
             let Description = document.getElementById("description").value;
             let Flooded = document.querySelector('input[name="flooded"]:checked').value;
             let Scrambled = document.querySelector('input[name="scrambled"]:checked').value;
-        }
+        
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 var currentUser = db.collection("users").doc(user.uid);
@@ -150,9 +154,10 @@
                     .then(userDoc => {
                         //get user Email
                         var userEmail = userDoc.data().email;
+                        console.log(userEmail);
                         // Start a new collection and add all data in it.
                         db.collection("Reviews").add({
-                            code: hikeID,
+                            //code: hikeID,
                             UserID: userID,
                             UserEmail: userEmail,
                             Title: Title,
@@ -168,6 +173,9 @@
                 console.log("no user signed in");
             }
         });
+        
+
+        }
     </script>
 
 </body>
