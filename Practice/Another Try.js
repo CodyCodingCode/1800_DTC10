@@ -64,6 +64,11 @@ const updateScore = () => {
     //This function listens for a button click
     localnews.addEventListener('click', (event) => {
       //if the 
+      if (increment_score >= counter && current_score > localnewscost) {
+        counter += 1;
+        score.innerText = current_score - localnewscost;
+        return
+      }
       if (current_score > localnewscost) {
         //this should reduce current score by localnewscost
         current_score -= localnewscost;
@@ -76,11 +81,6 @@ const updateScore = () => {
         //this should print score less the cost of the upgrade
         //For some reason, the function is automatically purchasing as many
         //upgrades as possible - needs to be debugged.
-      }
-      if (increment_score >= counter && current_score > localnewscost) {
-        counter += 1;
-        score.innerText = current_score - localnewscost;
-        return
       }
     });
 
