@@ -19,7 +19,7 @@ const pausebutt = document.querySelector("#pause");
 const scroll_speed = 1;
 
 // not sure if this is needed - update, it is (but not sure if it should be const?)
-score = document.querySelector("#score");
+const score = document.querySelector("#score");
 
 //Number formatter for readability - using this breaks the incrementer. Not sure why.
 let formatNumbers
@@ -57,33 +57,31 @@ const updateScore = () => {
   //This is the if-else statement that "runs" the game.
   //I think this is recursive (setTimeout calls the main function),
   //but the tutorial I used to help make this was not clear on that.
-  let counter = 2;
-  if (current_score < target) {
+  
+  if(current_score < target) {
     score.innerText = current_score + increment_score;
 
     //This function listens for a button click
     localnews.addEventListener('click', (event) => {
       //if the 
-      if (current_score > localnewscost) {
+      if(current_score > localnewscost) {
         //this should reduce current score by localnewscost
-        current_score -= localnewscost;
+        current_score = current_score - localnewscost;
+
         // this should increase increment score by 1
-        increment_score += 1;
+        increment_score = increment_score + 1;
+
         //this increases cost of localnewscost each time
-        localnewscost += 10;
+        localnewscost = localnewscost + 10;
         //test print for confirmation
-        console.log("new Local news cost is: " + localnewscost)
+        console.log("new local cost" + localnewscost)
         //this should print score less the cost of the upgrade
         //For some reason, the function is automatically purchasing as many
         //upgrades as possible - needs to be debugged.
-      }
-      if (increment_score >= counter && current_score > localnewscost) {
-        counter += 1;
-        score.innerText = current_score - localnewscost;
-        return
+        score.innerText = current_score;
       }
     });
-
+    
 
     setTimeout(updateScore, count_timer);
   } else {
@@ -103,10 +101,11 @@ pausebutt.addEventListener('click', (event) => {
   if (pausebutt.checked == true) {
     pause = true;
     //if pause true, then the counter is off/paused
-  } else {
-    //if pause is false, the counter is on/counting
-    pause = false;
-
+  }
+    else {
+      //if pause is false, the counter is on/counting
+      pause = false;
+      
   }
 });
 
