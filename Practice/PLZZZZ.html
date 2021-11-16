@@ -25,15 +25,35 @@
 
   <!-- Link to the api keys for your firebase project -->
   <script src="/Practice/PlzWork.js"></script>
-
+  <style>
+    h1 {text-align: center;}
+  </style>
 </head>
 
 <body>
-  <h1 id="Welcome">Display collections from database ... </h1>
-  <div id="Quiz_Resources">Click for "Quizzes" </div>
+  <h1>Quiz Page </h1>
+  <button><div id="Quiz_Resources">Click for "Quizzes" </div></button>
   <div id="results"></div>
 
   <script>
+    document.getElementById("Quiz_Resources").addEventListener("click", function () {
+      // this part is where you're getting the collection from
+      GetList("Quiz_Resources");
+    })
+
+    function GetList(category) {
+      var dbRef = db.collection(category).get().then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          // creates a new paragraph between each print out (p, div, etc...)
+          var para = document.createElement("p");
+          // this part is not reading to the database? it's just printing in relation to where the div is
+          document.getElementById("results").appendChild(para);
+          // this part is reading the field
+          var node = document.createTextNode(doc.data().Question_One);
+          para.appendChild(node)
+        })
+      })
+    }
     // this is some bs that isn't working properly
     // const myPost = db.collection('Quiz_Resources').doc('Quiz_One');
 
@@ -51,24 +71,25 @@
     //     document.write(data.Question_One)
     //   });
     // });
-    
+
     // create a var and have it acess the collections(Quiz_Resources) and within that
     // have it access the document(Quiz_One)
-    var docRef = db.collection("Quiz_Resources").doc("Quiz_One");
-    // .get() get's a document's snapshot one time, .then() is used to make it synchronous.
-    docRef.get().then((doc) => {
-      if (doc.exists) {
-        console.log("Document data:", doc.data());
-        const data = doc.data()
-    // here we are writing to the screen the data stored in Question_One
-        document.write(data.Question_One)
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    }).catch((error) => {
-      console.log("Error getting document:", error);
-    });
+    //   var docRef = db.collection("Quiz_Resources").doc("Quiz_One");
+    //   // .get() get's a document's snapshot one time, .then() is used to make it synchronous.
+    //   docRef.get().then((doc) => {
+    //     if (doc.exists) {
+    //       console.log("Document data:", doc.data());
+    //       const data = doc.data()
+    //   // here we are writing to the screen the data stored in Question_One
+    //       document.write(data.Question_One)
+    //     } else {
+    //       // doc.data() will be undefined in this case
+    //       console.log("No such document!");
+    //     }
+    //   }).catch((error) => {
+    //     console.log("Error getting document:", error);
+    //   });
+    // 
   </script>
 </body>
 
