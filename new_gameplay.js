@@ -43,6 +43,7 @@ function insertScoreVals() {
     }
   });
 }
+insertScoreVals();
 
 // define constants from the html - start with score and with one button
 // these are global scope (I think)
@@ -73,10 +74,12 @@ function displayScores() {
           
           //make our button clickable
           localnews.onclick = () => addPoints(currentUser);
+          displayScores();
         })
     }
   }) 
 };
+displayScores();
 
 
 //increment our main score
