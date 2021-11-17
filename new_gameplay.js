@@ -50,6 +50,7 @@ let localnews = document.querySelector("#localnews");
 let score_tally = document.querySelector("#score");
 let quiz_tally = document.querySelector("#quiz");
 let pausebutt = document.querySelector("#pause");
+let playbutton = document.querySelector("#play");
 // This is to run the while loop
 let pause = false;
 
