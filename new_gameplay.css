@@ -36,17 +36,6 @@
   text-align: center;
 }
 
-#play{
-  width: 100px;
-  height: 25px;
-  border: 1px solid black;
-  align-self: start;
-  justify-self: start;
-  text-align: center;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-}
-
 .butt{
   width: 100px;
   height: 25px;
