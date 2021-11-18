@@ -75,6 +75,7 @@ function displayScores() {
           //local scope variables
           var currentScore = userDoc.data().score;
           var currentQuiz = userDoc.data().quizTotal;
+          
 
           //this should display the numbers
           score_tally.innerHTML = currentScore;
@@ -93,12 +94,28 @@ function displayScores() {
 //Calls function to run clicker game - this works, but does not update the printout
 displayScores();
 
+// function incrementer(){
+//   firebase.auth().onAuthStateChanged(user => {
+//     //if logged in/exists
+//     if (user) {
 
+//       var i = db.collection("users").doc("quizTotal").get()
+//       console.log(i);
+//       //check the current score, quiz totals
+//       currentUser.get()
+//         .then(userDoc => {
+//         })
+//     }
+//   }) 
+// };
+// incrementer();
+
+var i = 1;
 //increment our main score
 function addPoints(currentUser) {
   console.log("inside");
   //update the value stored in the score field associated with the user
   currentUser.update({
-    score: firebase.firestore.FieldValue.increment(1)
+    score: firebase.firestore.FieldValue.increment(i)
   })
 };
