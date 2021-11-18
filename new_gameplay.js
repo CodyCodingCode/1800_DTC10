@@ -48,9 +48,6 @@ function insertScoreVals() {
   });
 }
 
-//calls function to ensure scores present in firebase/firestore
-insertScoreVals();
-
 // define constants from the html - start with score and with one button
 // these are global scope (I think)
 let localnews = document.querySelector("#localnews");
@@ -85,12 +82,15 @@ function displayScores() {
           localnews.onclick = () => addPoints(currentUser);
           // New addition - calls function recursively?
           // Would a conditional work here?
-          displayScores();
+         // displayScores();
         })
     }
   }) 
 };
 
+//calls function to ensure scores present in firebase/firestore
+
+insertScoreVals();
 //Calls function to run clicker game - this works, but does not update the printout
 displayScores();
 
@@ -119,3 +119,14 @@ function addPoints(currentUser) {
     score: firebase.firestore.FieldValue.increment(i)
   })
 };
+
+
+//Add a listener to update the score. .onsnapshot checks our database for changes.
+//Currently, this works for the player
+db.collection('users').onSnapshot(snapshot => {
+  let changes = snapshot.docChanges();
+  changes.forEach(change => {
+    console.log(change.doc.data());
+    score_tally.innerHTML = change.doc.get('score');
+  })
+})
