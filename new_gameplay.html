@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8"/>
     <title>Incremental Game</title>
@@ -12,16 +11,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-
      <!--Firebase Authentication API Keys -->
      <script src="/scripts/firebaseAPI_DTC10.js"></script>
   </head>
-
-
   <body>
     <div id="game">
       <div class="score_display" id="score"></div>
       <div class="score_display" id="quiz"></div>
+      <div class="butt" id="localnews">Local News</div>
       <button class="butt" id="localnews" >Local News</button>
       <div class="butt" id="socialbots">Social Bots</div>
       <div class="butt" id="cablenews">Cable News</div>
@@ -30,17 +27,13 @@
       <div class="butt" id="altnews">Alt News</div>
       <div class="butt" id="podcasts">Podcasts</div>
       <div class="butt" id="adverts">adverts</div>
-
     </div>
-
     <div id="cr">DTC-10 - Copyright 2021</div>
     <div id="switches">
       Pause
       <input id="pause" type="checkbox">
     </div>
   </body>
-
   <script src="new_gameplay.js">
-
   </script>
 </html>
