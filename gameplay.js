@@ -54,6 +54,11 @@ let playbutton = document.querySelector("#play");
 //new main button to drive clicker
 let mainbutton = document.querySelector("#mainbutton");
 
+// function that redirects to a quiz page
+function redirecttoquiz() {
+  window.location.assign("Quiz_Page.html")
+}
+
 //display the scores
 function displayScores() {
   //authenticate user
