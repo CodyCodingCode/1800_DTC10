@@ -22,14 +22,6 @@
 
 <body>
 
-  <!-- <div class="container-fluid bg-dark text-light p-5">
-    <div class="container bg-dark p-5">
-      <h1 class="display-4">Question 1:  <span id="name-goes-here"></span></h1>
-      <hr>
-      <p>Quote of the day: <span id="beta-goes-here"></span></p>
-    </div>
-  </div> -->
-
   <div class="container mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
       <div class="py-2 h5"><b>Question: </b><span id="first-goes-here"></span></div>
@@ -49,7 +41,8 @@
         <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
         <label class="options">
           <!--Added id to radio button-->
-          <input type="radio" name="radio" id="fourthSelectionChoice"> <span class="checkmark" id="fourth_choice"></span>
+          <input type="radio" name="radio" id="fourthSelectionChoice"> <span class="checkmark"
+            id="fourth_choice"></span>
         </label>
         <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
         <!-- <label class="options">
@@ -62,60 +55,89 @@
       <a href="quizupgrade page.html">
         <div id="prev"> <button class="btn btn-primary">Back</button></div>
       </a>
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton" onclick="myFunction()">Submit</button> </div>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton"
+          onclick="myFunction()">Submit</button> </div>
 
       <div class="popup" onclick="myFunction()">
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
     </div>
 
-    </div>
+  </div>
 
-    <script>
-// When the user clicks on div, open the popup
-      function myFunction() {
-        var popup = document.getElementById("myPopup");
-        //added variable for the right radio button
-        var rightanswer = document.querySelector("#fourthSelectionChoice")
-        
-        //if the right radio button is checked when click event occurs, right answer pop-up shows
-        if(rightanswer.checked == true) {
-          popup.classList.toggle("show");
-        }
-      };
+  <script>
+    // When the user clicks on div, open the popup
 
-      function insertName() {
-        firebase.auth().onAuthStateChanged(user => {
-          // Check if user is signed in:
-          if (user) {
-            // Do something for the current logged-in user here: 
-            console.log('H8cjwzL3KxbOtpm36JxiSEO1g7q1');
-            //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("Quiz_Resources").doc('Quiz_Zero');
-            //get the document for current user.
-            currentUser.get()
-              .then(userDoc => {
-                var first = userDoc.data().Question_1;
-                var second = userDoc.data().choice_1;
-                var third = userDoc.data().choice_2;
-                var fourth = userDoc.data().choice_3;
-                var fifth = userDoc.data().choice_4;
-                // var correct = userDoc.data().choice_5;
+    function myFunction() {
+      firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+          var popup = document.getElementById("myPopup");
+          //added variable for the right radio button
+          var rightanswer = document.querySelector("#fourthSelectionChoice")
 
-                $("#first-goes-here").text(first);
-                $("#second-goes-here").text(second); //using jquery
-                $("#third-goes-here").text(third);
-                $("#fourth-goes-here").text(fourth);
-                $("#fifth-goes-here").text(fifth);
-                // $("#correct-goes-here").text(correct);
-              })
-          } else {
-            // No user is signed in.
+          //if the right radio button is checked when click event occurs, right answer pop-up shows
+          if (rightanswer.checked == true) {
+            popup.classList.toggle("show");
+            currentUser.update({
+              quizTotal: firebase.firestore.FieldValue.increment(1)
+            })
           }
-        });
-      }
-      insertName();
-    </script>
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("users").doc(user.uid);
+          //get the document for current user.
+          // currentUser.get()
+          //   .then(userDoc => {})
+        } else {
+          // No user is signed in.
+        }
+      });
+    }
+
+    // function myFunction() {
+
+    //   var popup = document.getElementById("myPopup");
+    //   //added variable for the right radio button
+    //   var rightanswer = document.querySelector("#fourthSelectionChoice")
+
+    //   //if the right radio button is checked when click event occurs, right answer pop-up shows
+    //   if (rightanswer.checked == true) {
+    //     popup.classList.toggle("show");
+    //   }
+    // };
+
+    function insertName() {
+      firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+          // Do something for the current logged-in user here: 
+          console.log('H8cjwzL3KxbOtpm36JxiSEO1g7q1');
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("Quiz_Resources").doc('Quiz_Zero');
+          //get the document for current user.
+          currentUser.get()
+            .then(userDoc => {
+              var first = userDoc.data().Question_1;
+              var second = userDoc.data().choice_1;
+              var third = userDoc.data().choice_2;
+              var fourth = userDoc.data().choice_3;
+              var fifth = userDoc.data().choice_4;
+              // var correct = userDoc.data().choice_5;
+
+              $("#first-goes-here").text(first);
+              $("#second-goes-here").text(second); //using jquery
+              $("#third-goes-here").text(third);
+              $("#fourth-goes-here").text(fourth);
+              $("#fifth-goes-here").text(fifth);
+              // $("#correct-goes-here").text(correct);
+            })
+        } else {
+          // No user is signed in.
+        }
+      });
+    }
+    insertName();
+  </script>
 </body>
 
 </html>
