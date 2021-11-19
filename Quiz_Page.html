@@ -48,7 +48,7 @@
         </label>
         <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
         <label class="options">
-          <input type="radio" name="radio"> <span class="checkmark" id="fourth_choice"></span>
+          <input type="radio" name="radio" id="fourthSelectionChoice"> <span class="checkmark" id="fourth_choice"></span>
         </label>
         <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
         <!-- <label class="options">
@@ -61,7 +61,7 @@
       <a href="quizupgrade page.html">
         <div id="prev"> <button class="btn btn-primary">Back</button></div>
       </a>
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" onclick="myFunction()">Submit</button> </div>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton" onclick="myFunction()">Submit</button> </div>
 
       <div class="popup" onclick="myFunction()">
         <span class="popuptext" id="myPopup">You got it right!</span>
@@ -72,13 +72,15 @@
 
     <script>
 // When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
+      function myFunction() {
+        var popup = document.getElementById("myPopup");
+        var rightanswer = document.querySelector("#fourthSelectionChoice")
+    
+        if(rightanswer.checked == true) {
+          popup.classList.toggle("show");
+        }
+      };
 
-    <script>
       function insertName() {
         firebase.auth().onAuthStateChanged(user => {
           // Check if user is signed in:
