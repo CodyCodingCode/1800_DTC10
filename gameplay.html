@@ -16,6 +16,8 @@
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <!--Firebase Authentication API Keys -->
   <script src="/scripts/firebaseAPI_DTC10.js"></script>
+
+
 </head>
 
 <body>
@@ -96,12 +98,30 @@
       </div>
 
     </div>
-    <div id="cr">DTC-10 - Copyright 2021</div>
-    <div id="switches">
-      Pause
-      <input id="pause" type="checkbox">
-    </div>
-  </body>
+  </nav>
+
+  <div id="game">
+    <div class="score_display" id="score"></div>
+    <div class="score_display" id="quiz"></div>
+    <div class="butt" id="localnewsold">Local News</div>
+    <button class="butt" id="localnews">Local News</button>
+    <div class="butt" id="socialbots">Social Bots</div>
+    <div class="butt" id="cablenews">Cable News</div>
+    <div class="butt" id="blogs">Blogs</div>
+    <div class="butt" id="celebs">Sponsors</div>
+    <div class="butt" id="altnews">Alt News</div>
+    <div class="butt" id="podcasts">Podcasts</div>
+    <div class="butt" id="adverts">adverts</div>
+  </div>
+  <div id="cr">DTC-10 - Copyright 2021</div>
+  <div id="switches">
+    Pause
+    <input id="pause" type="checkbox">
+  </div>
+
   <script src="gameplay.js">
   </script>
+
+</body>
+
 </html>
