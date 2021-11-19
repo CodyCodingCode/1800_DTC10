@@ -30,76 +30,77 @@
 </head>
 
 <body>
-   
+
     <div class="container">
         <h1>Review for <span id="HikeName"></span></h1>
-    <form>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Add a title</label>
-            <input type="text" class="form-control" id="title" placeholder="Title">
-        </div><br>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">What was the level of the hike?</label>
-            <select class="form-control" id="level">
-                <option>Hard</option>
-                <option>Moderate</option>
-                <option>Easy</option>
-            </select>
-            <br>
+        <form>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Which season did you do the hike?</label>
-                <select class="form-control" id="season">
-                    <option>Fall</option>
-                    <option>Winter</option>
-                    <option>Spring</option>
-                    <option>Summer</option>
+                <label for="exampleFormControlInput1">Add a title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title">
+            </div><br>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">What was the level of the hike?</label>
+                <select class="form-control" id="level">
+                    <option>Hard</option>
+                    <option>Moderate</option>
+                    <option>Easy</option>
                 </select>
                 <br>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">What did you think of the trail?</label>
-                <textarea class="form-control" id="description" rows="3"></textarea>
-            </div>
-            <br>
-            <!--Flooded-->
-            <label>Flooded <span style="display:inline-block; width: 26pt;"></span></label>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Which season did you do the hike?</label>
+                    <select class="form-control" id="season">
+                        <option>Fall</option>
+                        <option>Winter</option>
+                        <option>Spring</option>
+                        <option>Summer</option>
+                    </select>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">What did you think of the trail?</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <br>
+                <!--Flooded-->
+                <label>Flooded <span style="display:inline-block; width: 26pt;"></span></label>
 
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flooded" value="Yes">
-                <label>Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flooded" value="No">
-                <label>No</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flooded" value="unSure" checked="">
-                <label>Not sure</label>
-            </div>
-            <br>
-            <!--Scramble-->
-            <label>Scramble <span style="display:inline-block; width: 20pt;"></span></label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flooded" value="Yes">
+                    <label>Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flooded" value="No">
+                    <label>No</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flooded" value="unSure" checked="">
+                    <label>Not sure</label>
+                </div>
+                <br>
+                <!--Scramble-->
+                <label>Scramble <span style="display:inline-block; width: 20pt;"></span></label>
 
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="scrambled" value="Yes">
-                <label>Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="scrambled" value="No">
-                <label>No</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="scrambled" value="unSure" checked="">
-                <label>Not sure</label>
-            </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="scrambled" value="Yes">
+                    <label>Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="scrambled" value="No">
+                    <label>No</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="scrambled" value="unSure" checked="">
+                    <label>Not sure</label>
+                </div>
 
-            <br>
-            <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button>
+                <br>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-lg btn-primary pull-right"
+                        onclick="writeReview()">Submit</button>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
 
 
@@ -137,43 +138,43 @@
         //         console.log("Error getting documents: ", error);
         //     });
         function writeReview() {
-            
+
             let Title = document.getElementById("title").value;
             let Level = document.getElementById("level").value;
             let Season = document.getElementById("season").value;
             let Description = document.getElementById("description").value;
             let Flooded = document.querySelector('input[name="flooded"]:checked').value;
             let Scrambled = document.querySelector('input[name="scrambled"]:checked').value;
-        
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                var currentUser = db.collection("users").doc(user.uid);
-                var userID = user.uid;
-                //get the document for current user.
-                currentUser.get()
-                    .then(userDoc => {
-                        //get user Email
-                        var userEmail = userDoc.data().email;
-                        console.log(userEmail);
-                        // Start a new collection and add all data in it.
-                        db.collection("Reviews").add({
-                            //code: hikeID,
-                            UserID: userID,
-                            UserEmail: userEmail,
-                            Title: Title,
-                            Level: Level,
-                            Season: Season,
-                            Description: Description,
-                            Flooded: Flooded,
-                            Scrambled: Scrambled
-                        });
-                    })
-            } else {
-                // No user is signed in.
-                console.log("no user signed in");
-            }
-        });
-        
+
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    var currentUser = db.collection("users").doc(user.uid);
+                    var userID = user.uid;
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get user Email
+                            var userEmail = userDoc.data().email;
+                            console.log(userEmail);
+                            // Start a new collection and add all data in it.
+                            db.collection("Reviews").add({
+                                //code: hikeID,
+                                UserID: userID,
+                                UserEmail: userEmail,
+                                Title: Title,
+                                // Level: Level,
+                                // Season: Season,
+                                // Description: Description,
+                                // Flooded: Flooded,
+                                // Scrambled: Scrambled
+                            });
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("no user signed in");
+                }
+            });
+
 
         }
     </script>
