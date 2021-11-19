@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>FireBase DOM event</title>
+  <meta name="comp1800_dtc10 template" content="Quizzes YOOO">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Optional styles and scripts of your own -->
+  <link type="text/css" href="styles/my_style.css">
+
+  <!-- Bootstrap FirebaseUI CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Firebase 8 CDNs-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+  <!-- Link to the api keys for your firebase project -->
+  <script src="/Practice/PlzWork.js"></script>
+  <style>
+    h1 {text-align: center;}
+  </style>
+</head>
+
+<body>
+  <h1>Quiz Page </h1>
+  <button><div id="Quiz_Resources">Click for "Quizzes" </div></button>
+  <div id="results"></div>
+
+  <script>
+    document.getElementById("Quiz_Resources").addEventListener("click", function () {
+      // this part is where you're getting the collection from
+      GetList("Quiz_Resources");
+    })
+
+    function GetList(category) {
+      var dbRef = db.collection(category).get().then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          // creates a new paragraph between each print out (p, div, etc...)
+          var para = document.createElement("p");
+          // this part is not reading to the database? it's just printing in relation to where the div is
+          document.getElementById("results").appendChild(para);
+          // this part is reading the field
+          var node = document.createTextNode(doc.data().Question_One);
+          para.appendChild(node)
+        })
+      })
+    }
+    // this is some bs that isn't working properly
+    // const myPost = db.collection('Quiz_Resources').doc('Quiz_One');
+
+    // myPost.onSnapshot().then(doc => {
+    //     const data = doc.data();
+    //     document.write(data.Question_One)
+    //   })
+
+    // this just prints every question_one in Quiz_Resources
+    // db.collection("Quiz_Resources").get().then((querySnapshot) => {
+    //   querySnapshot.forEach((doc) => {
+    //     // doc.data() is never undefined for query doc snapshots
+    //     console.log(doc.id, " => ", doc.data());
+    //     const data = doc.data()
+    //     document.write(data.Question_One)
+    //   });
+    // });
+
+    // create a var and have it acess the collections(Quiz_Resources) and within that
+    // have it access the document(Quiz_One)
+    //   var docRef = db.collection("Quiz_Resources").doc("Quiz_One");
+    //   // .get() get's a document's snapshot one time, .then() is used to make it synchronous.
+    //   docRef.get().then((doc) => {
+    //     if (doc.exists) {
+    //       console.log("Document data:", doc.data());
+    //       const data = doc.data()
+    //   // here we are writing to the screen the data stored in Question_One
+    //       document.write(data.Question_One)
+    //     } else {
+    //       // doc.data() will be undefined in this case
+    //       console.log("No such document!");
+    //     }
+    //   }).catch((error) => {
+    //     console.log("Error getting document:", error);
+    //   });
+    // 
+  </script>
+</body>
+
+</html>
