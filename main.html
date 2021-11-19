@@ -165,8 +165,8 @@
           currentUser.get()
             .then(userDoc => {
               var user_Name = userDoc.data().name;
-              //console.log(user_Name);
-              document.getElementById("name-goes-here").innerHTML = name;                     //using javascript
+              console.log(user_Name);
+              document.getElementById("name-goes-here").innerHTML = user_Name;                     //using javascript
               // $("#name-goes-here").text(user_Name); //using jquery
             })
         } else {
