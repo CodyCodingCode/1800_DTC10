@@ -50,8 +50,10 @@ let score_tally = document.querySelector("#score");
 let quiz_tally = document.querySelector("#quiz");
 let pausebutt = document.querySelector("#pause");
 let playbutton = document.querySelector("#play");
-// This is to run the while loop
-let pause = false;
+
+//new main button to drive clicker
+let mainbutton = document.querySelector("#mainbutton");
+
 //display the scores
 function displayScores() {
   //authenticate user
@@ -70,7 +72,7 @@ function displayScores() {
           quiz_tally.innerHTML = currentQuiz;
           
           //make our button clickable
-          localnews.onclick = () => addPoints(currentUser);
+          mainbutton.onclick = () => addPoints(currentUser);
 
         })
     }
