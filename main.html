@@ -165,15 +165,9 @@
           currentUser.get()
             .then(userDoc => {
               var user_Name = userDoc.data().name;
-<<<<<<< HEAD
-              console.log(user_Name);
-              document.getElementById("name-goes-here").innerHTML = user_Name;                     //using javascript
-              // $("#name-goes-here").text(user_Name); //using jquery
-=======
               //console.log(user_Name);
               // document.getElementById("name-goes-here").innerHTML = name;                     //using javascript
               $("#name-goes-here").text(user_Name); //using jquery
->>>>>>> b0e16a527776c045362f67c8a89e22c33c4fd76b
             })
         } else {
           // No user is signed in.
