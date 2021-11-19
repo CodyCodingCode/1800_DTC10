@@ -71,10 +71,7 @@ function displayScores() {
           
           //make our button clickable
           localnews.onclick = () => addPoints(currentUser);
-          // New addition - calls function recursively?
-          // Would a conditional work here?
-          displayScores();
-         // displayScores();
+
         })
     }
   }) 
