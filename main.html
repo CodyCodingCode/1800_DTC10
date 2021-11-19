@@ -110,7 +110,7 @@
     <img class="d-block mx-auto mb-4" src="./images/Glossary-Icon.png" alt="" width="250" height="150">
     <h1 class="display-5 fw-bold">News Tycoon</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Welcome Back To your Knowledge Empire
+      <p class="lead mb-4"><span id="name-goes-here"></span>Welcome Back To your Knowledge Empire
       </p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <a href="quizupgrade page.html"><button type="button"
@@ -166,8 +166,8 @@
             .then(userDoc => {
               var user_Name = userDoc.data().name;
               //console.log(user_Name);
-              document.getElementById("name-goes-here").innerHTML = name;                     //using javascript
-              // $("#name-goes-here").text(user_Name); //using jquery
+              // document.getElementById("name-goes-here").innerHTML = name;                     //using javascript
+              $("#name-goes-here").text(user_Name); //using jquery
             })
         } else {
           // No user is signed in.
