@@ -61,43 +61,56 @@
       <a href="quizupgrade page.html">
         <div id="prev"> <button class="btn btn-primary">Back</button></div>
       </a>
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" onclick="doQuiz()">Submit</button> </div>
-    </div>
-  </div>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" onclick="myFunction()">Submit</button> </div>
 
-  <script>
-    function insertName() {
-      firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-          // Do something for the current logged-in user here: 
-          console.log('H8cjwzL3KxbOtpm36JxiSEO1g7q1');
-          //go to the correct user document by referencing to the user uid
-          currentUser = db.collection("Quiz_Resources").doc('Quiz_Zero');
-          //get the document for current user.
-          currentUser.get()
-            .then(userDoc => {
-              var first = userDoc.data().Question_1;
-              var second = userDoc.data().choice_1;
-              var third = userDoc.data().choice_2;
-              var fourth = userDoc.data().choice_3;
-              var fifth = userDoc.data().choice_4;
-              // var correct = userDoc.data().choice_5;
-  
-              $("#first-goes-here").text(first);
-              $("#second-goes-here").text(second); //using jquery
-              $("#third-goes-here").text(third);
-              $("#fourth-goes-here").text(fourth);
-              $("#fifth-goes-here").text(fifth);
-              // $("#correct-goes-here").text(correct);
-            })
-        } else {
-          // No user is signed in.
-        }
-      });
-    }
-    insertName();
-  </script>
+      <div class="popup" onclick="myFunction()">
+        <span class="popuptext" id="myPopup">You got it right!</span>
+      </div>
+    </div>
+
+    </div>
+
+    <script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
+
+    <script>
+      function insertName() {
+        firebase.auth().onAuthStateChanged(user => {
+          // Check if user is signed in:
+          if (user) {
+            // Do something for the current logged-in user here: 
+            console.log('H8cjwzL3KxbOtpm36JxiSEO1g7q1');
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("Quiz_Resources").doc('Quiz_Zero');
+            //get the document for current user.
+            currentUser.get()
+              .then(userDoc => {
+                var first = userDoc.data().Question_1;
+                var second = userDoc.data().choice_1;
+                var third = userDoc.data().choice_2;
+                var fourth = userDoc.data().choice_3;
+                var fifth = userDoc.data().choice_4;
+                // var correct = userDoc.data().choice_5;
+
+                $("#first-goes-here").text(first);
+                $("#second-goes-here").text(second); //using jquery
+                $("#third-goes-here").text(third);
+                $("#fourth-goes-here").text(fourth);
+                $("#fifth-goes-here").text(fifth);
+                // $("#correct-goes-here").text(correct);
+              })
+          } else {
+            // No user is signed in.
+          }
+        });
+      }
+      insertName();
+    </script>
 </body>
 
 </html>
