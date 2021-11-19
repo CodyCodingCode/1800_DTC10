@@ -22,14 +22,6 @@
 
 <body>
 
-  <!-- <div class="container-fluid bg-dark text-light p-5">
-    <div class="container bg-dark p-5">
-      <h1 class="display-4">Question 1:  <span id="name-goes-here"></span></h1>
-      <hr>
-      <p>Quote of the day: <span id="beta-goes-here"></span></p>
-    </div>
-  </div> -->
-
   <div class="container mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
       <div class="py-2 h5"><b>Question: </b><span id="first-goes-here"></span></div>
@@ -87,12 +79,15 @@
           //if the right radio button is checked when click event occurs, right answer pop-up shows
           if (rightanswer.checked == true) {
             popup.classList.toggle("show");
+            currentUser.update({
+              quizTotal: firebase.firestore.FieldValue.increment(1)
+            })
           }
           //go to the correct user document by referencing to the user uid
           currentUser = db.collection("users").doc(user.uid);
           //get the document for current user.
-          currentUser.get()
-            .then(userDoc => {})
+          // currentUser.get()
+          //   .then(userDoc => {})
         } else {
           // No user is signed in.
         }
