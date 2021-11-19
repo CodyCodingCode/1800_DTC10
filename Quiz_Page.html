@@ -48,6 +48,7 @@
         </label>
         <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
         <label class="options">
+          <!--Added id to radio button-->
           <input type="radio" name="radio" id="fourthSelectionChoice"> <span class="checkmark" id="fourth_choice"></span>
         </label>
         <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
@@ -74,8 +75,10 @@
 // When the user clicks on div, open the popup
       function myFunction() {
         var popup = document.getElementById("myPopup");
+        //added variable for the right radio button
         var rightanswer = document.querySelector("#fourthSelectionChoice")
-    
+        
+        //if the right radio button is checked when click event occurs, right answer pop-up shows
         if(rightanswer.checked == true) {
           popup.classList.toggle("show");
         }
