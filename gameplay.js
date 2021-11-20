@@ -107,5 +107,6 @@ db.collection('users').onSnapshot(snapshot => {
   changes.forEach(change => {
     console.log(change.doc.data());
     score_tally.innerHTML = change.doc.get('score');
+    quiz_tally.innerHTML = change.doc.get('quizTotal')
   })
 })
