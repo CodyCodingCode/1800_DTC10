@@ -40,15 +40,10 @@
         </label>
         <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
         <label class="options">
-          <!--Added id to radio button-->
           <input type="radio" name="radio" id="CorrectChoice"> <span class="checkmark"
             id="fourth_choice"></span>
         </label>
         <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
-        <!-- <label class="options">
-          <input type="radio" name="radio"> <span class="checkmark" id="fifth_choice"></span>
-        </label>
-        <div class="py-2 h5"><b></b><span id="correct-goes-here"></span></div> -->
       </div>
     </div>
     <div class="d-flex align-items-center pt-3">
@@ -57,12 +52,12 @@
       </a>
       <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton"
           onclick="myFunction()">Submit</button> </div>
-
       <div class="popup" onclick="myFunction()">
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
+      <br><br><br><br><br>
       <a href="Quiz_1_question_2.html">
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button" disabled>Next</button> </div>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button" style="display:none;">Next</button> </div>
       </a>
     </div>
 
@@ -82,6 +77,7 @@
           //if the right radio button is checked when click event occurs, right answer pop-up shows
           if (rightanswer.checked == true) {
             console.log('yep')
+            document.getElementById("next_button").style.display = "";
             popup.classList.toggle("show");
             currentUser.update({
               // increment the quiz_total in the firebase by 1 if user gets the right answer

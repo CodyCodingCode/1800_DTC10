@@ -24,7 +24,7 @@
 
   <div class="container mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
-      <div class="py-2 h5"><b>Question 1: </b><span id="first-goes-here"></span></div>
+      <div class="py-2 h5"><b>Question 3: </b><span id="first-goes-here"></span></div>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <br><br>
         <label class="options">
@@ -32,27 +32,13 @@
         </label>
         <div class="py-2 h5"><b></b><span id="second-goes-here"></span></div>
         <label class="options">
-          <input type="radio" name="radio"> <span class="checkmark" id="second_choice"></span>
+          <input type="radio" name="radio" id="CorrectChoice"> <span class="checkmark" id="second_choice"></span>
         </label>
         <div class="py-2 h5"><b></b><span id="third-goes-here"></span></div>
-        <label class="options">
-          <input type="radio" name="radio"> <span class="checkmark" id="third_choice"></span>
-        </label>
-        <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
-        <label class="options">
-          <!--Added id to radio button-->
-          <input type="radio" name="radio" id="CorrectChoice"> <span class="checkmark"
-            id="fourth_choice"></span>
-        </label>
-        <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
-        <!-- <label class="options">
-          <input type="radio" name="radio"> <span class="checkmark" id="fifth_choice"></span>
-        </label>
-        <div class="py-2 h5"><b></b><span id="correct-goes-here"></span></div> -->
       </div>
     </div>
     <div class="d-flex align-items-center pt-3">
-      <a href="/gameplay.html">
+      <a href="Quiz_6_question_2.html">
         <div id="prev"> <button class="btn btn-primary">Back</button></div>
       </a>
       <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton"
@@ -61,8 +47,8 @@
       <div class="popup" onclick="myFunction()">
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
-      <a href="Quiz_1_question_2.html">
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button" disabled>Next</button> </div>
+      <a href="/gameplay.html">
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button" disabled>Continue</button> </div>
       </a>
     </div>
 
@@ -107,19 +93,13 @@
           //get the document for current user.
           currentUser.get()
             .then(userDoc => {
-              var first = userDoc.data().Question_1;
-              var second = userDoc.data().choice_1;
-              var third = userDoc.data().choice_2;
-              var fourth = userDoc.data().choice_3;
-              var fifth = userDoc.data().choice_4;
-              // var correct = userDoc.data().choice_5;
+              var first = userDoc.data().Question_3;
+              var second = userDoc.data().c3hoice_1;
+              var third = userDoc.data().c3hoice_2;
 
               $("#first-goes-here").text(first);
               $("#second-goes-here").text(second); //using jquery
               $("#third-goes-here").text(third);
-              $("#fourth-goes-here").text(fourth);
-              $("#fifth-goes-here").text(fifth);
-              // $("#correct-goes-here").text(correct);
             })
         } else {
           // No user is signed in.

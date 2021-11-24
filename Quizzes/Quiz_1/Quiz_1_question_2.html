@@ -51,7 +51,7 @@
         <span class="popuptext" id="myPopup1">You got it right!</span>
       </div>
       <a href="Quiz_1_question_3.html">
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button">Next</button> </div>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button" style="display:none;">Next</button> </div>
       </a>
     </div>
 
@@ -71,6 +71,7 @@
           //if the right radio button is checked when click event occurs, right answer pop-up shows
           if (rightanswer.checked == true) {
             console.log('yep')
+            document.getElementById("next_button").style.display = "";
             popup.classList.toggle("show");
             currentUser.update({
               // increment the quiz_total in the firebase by 1 if user gets the right answer
