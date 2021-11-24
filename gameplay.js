@@ -2,8 +2,40 @@
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // //
+
+//-----------------------------------------------//
+//-- The following is the Account Profile form --//
+//-----------------------------------------------//
 //insert score and quizvalue for user
 var currentUser;
+
+// define variables associated with each button in the game
+// these are global scope (I think)
+//Main Clicker
+let mainbutton = document.querySelector("#mainbutton");
+//Score Display
+let score_tally = document.querySelector("#score");
+let quiz_tally = document.querySelector("#quiz");
+//Quiz Buttons
+let localNews = document.querySelector("#localnews");
+let socialBots = document.querySelector("#socialbots")
+let cabelNews = document.querySelector("#cablenews")
+let blogs = document.querySelector("#blogs")
+let celebs = document.querySelector("#celebs")
+let altnews = document.querySelector("#altnews")
+let podcasts = document.querySelector("#podcasts")
+let adverts = document.querySelector("#advertisements")
+
+//Click incrementer
+let pointIncrement = 1;
+
+//let pausebutt = document.querySelector("#pause");
+//let playbutton = document.querySelector("#play");
+
+//-----------------------------------------------//
+//-- The following is checks FB for data and   --//
+//-- Adds it to the user's data if missing     --//
+//-----------------------------------------------//
 function insertScoreVals() {
   //check user authentication with firebase
   firebase.auth().onAuthStateChanged(user => {
@@ -41,18 +73,8 @@ function insertScoreVals() {
 }
 
 //calls function to ensure scores present in firebase/firestore
-insertScoreVals();
+//insertScoreVals();
 
-// define constants from the html - start with score and with one button
-// these are global scope (I think)
-let localnews = document.querySelector("#localnews");
-let score_tally = document.querySelector("#score");
-let quiz_tally = document.querySelector("#quiz");
-let pausebutt = document.querySelector("#pause");
-let playbutton = document.querySelector("#play");
-
-//new main button to drive clicker
-let mainbutton = document.querySelector("#mainbutton");
 
 
 
@@ -92,28 +114,227 @@ function addPoints(currentUser) {
   console.log("inside");
   //update the value stored in the score field associated with the user
   currentUser.update({
-    score: firebase.firestore.FieldValue.increment(1)
+    score: firebase.firestore.FieldValue.increment(pointIncrement)
   })
 }; 
 
 
+//define functions to use in our listener
+function activateButton(button) {
+  button.disabled = false;
+};
+
+function deactivateButton(button) {
+  button.disabled = true;
+};
+
+// Control the buttons in our game
+function buttonController(score) {
+  //---- Local News Updgrade
+  if (score >= 15) {
+    activateButton(localNews);
+    console.log('Local News is Activated');
+
+  } else if (score < 15) {
+    deactivateButton(localNews);
+    console.log('Local News is Deactivated');
+  }
+
+  //---- Social bots upgrade
+  if (score >= 115) {
+    activateButton(socialBots);
+    console.log('Social Bots is Activated');
+  } else if (score < 115) {
+    deactivateButton(socialBots);
+    console.log('Social Bots is Deactivated');
+  }
+
+  //---- Cable News Upgrade
+  if (score >= 315) {
+    activateButton(cabelNews);
+    console.log('Cable News is Activated');
+
+  } else if (score < 315) {
+    deactivateButton(cabelNews);
+    console.log('Cable News is Deactivated');
+  }
+
+  //---- Blogs Upgrade
+  if (score >= 515) {
+    activateButton(blogs);
+    console.log('Blogs is Activated');
+
+  } else if (score < 515) {
+    deactivateButton(blogs);
+    console.log('Blogs News is Deactivated');
+  }
+
+  //---- Celebs Upgrade
+  if (score >= 715) {
+    activateButton(celebs);
+    console.log('Celebreties is Activated');
+
+  } else if (score < 715) {
+    deactivateButton(celebs);
+    console.log('Celebrities is Deactivated');
+  }
+
+  //---- Alt News Upgrade
+  if (score >= 915) {
+    activateButton(altnews);
+    console.log('Alternative News is Activated');
+
+  } else if (score < 915) {
+    deactivateButton(altnews);
+    console.log('Alternative News is Deactivated');
+  }
+
+  //---- Podcasts upgrade
+  if (score >= 1115) {
+    activateButton(podcasts);
+    console.log('Podcasts is Activated');
+
+  } else if (score < 1115) {
+    deactivateButton(podcasts);
+    console.log('Podcasts is Deactivated');
+  }
+
+  //---- Adverts Upgrade
+  if (score >= 1315) {
+    activateButton(adverts);
+    console.log('Adverts is Activated');
+
+  } else if (score < 1315) {
+    deactivateButton(adverts);
+    console.log('Adverts is Deactivated');
+  }
+};
+
+
+// Real-time, user-specific score, quiz listener
+// This actually listens to the specific user's data, not all users for changes
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    db.collection('users').doc(user.uid)
+      .onSnapshot((doc) => {
+        score_tally.innerHTML = doc.get('score');
+        quiz_tally.innerHTML = doc.get('quizTotal');
+        console.log("current data ", doc.data());
+
+        // We're adding functionality to this listener.
+        // If the score hits a threshold, we will unlock buttons
+        buttonController(doc.get('score'));
+
+        // A quiz score tracker will sync with a increment increase function
+        });
+  }
+});
+
+
+
 //Add a listener to update the score. .onsnapshot checks our database for changes.
 //Currently, this works for the player
-db.collection('users').onSnapshot(snapshot => {
-  let changes = snapshot.docChanges();
-  changes.forEach(change => {
-    console.log(change.doc.data());
-    score_tally.innerHTML = change.doc.get('score');
-    quiz_tally.innerHTML = change.doc.get('quizTotal')
-  })
-})
+// firebase.auth().onAuthStateChanged((user) => {
+//   if (user) {
+//     var targetUser = user.uid;
+//     console.log(targetUser);
+//     console.log('hello');
 
 
 
+//     // db.collection('users').where("user.uid", "==", targetUser).onSnapshot(snapshot => {
+//     //   let changes = snapshot.docChanges();
+//     //   changes.forEach(change => {
+//   }  //     console.log(change.doc.data());
+// });
+// console.log("Cheese" + targetUser);
+
+// firebase.auth().onAuthStateChanged((user) => {
+//   if (user) {
+//     var uid = user.uid;
+//     // ...
+//   } else {
+//     // User is signed out
+//     // ...
+//   }
+// });
 
 
 
+// db.collection('users').onSnapshot(snapshot => {
+//   firebase.auth().onAuthStateChanged(user => {
+//     if (user) {
+//       currentUser = db.collection("users").doc(user.uid)
 
+//       let changes = snapshot.currentUser.docChanges();
+//       changes.forEach(change => {
+//         console.log(change.doc.data());
+//         score_tally.innerHTML = change.doc.get('score');
+//         quiz_tally.innerHTML = change.doc.get('quizTotal');
+//       });
+
+//       currentUser.get()
+//         .then(userDoc => {
+//           //if 
+//           if (userDoc.data().score >= 20) {
+//             localNews.disabled = false;
+//           }
+
+
+//         });
+    
+//     } else {
+//       console.log("Error! No User Found")
+//     };
+//   });
+// });
+
+
+//Trying the button lock feature with a listener instead
+// db.collection('users').onSnapshot(snapshot => {
+//   let changes = snapshot.docChanges();
+//   changes.forEach(change => {
+//     if (change.doc.get('score') >= 20) {
+//       console.log(change.doc.get('score'));
+//       localNews.disabled = false;
+//     };
+//   })
+// })
+
+
+//--------------------------------------------------------------------
+// This function disables quiz buttons that the user does not have the points for
+// function lockButtons() {
+//   //We will use the data stored on Firebase to determine quiz eligibility
+//   firebase.auth().onAuthStateChanged(user => {
+//     if (user) {
+//       currentUser = db.collection("users").doc(user.uid);
+
+//       currentUser.get()
+//       .then(userDoc => {
+//         let currentTally = userDoc.data().score;
+
+//         //lock local news quiz until poin threshold
+//         if (currentTally >= 20) {
+//           localNews.disabled = false;
+//         };
+//       })
+//     }
+//   })
+// }
+
+//This needs to run at the top
+// lockButtons();
+
+//copy for safekeeping - original listener for points
+// db.collection('users').onSnapshot(snapshot => {
+//   let changes = snapshot.docChanges();
+//   changes.forEach(change => {
+//     console.log(change.doc.data());
+//     score_tally.innerHTML = change.doc.get('score');
+//     quiz_tally.innerHTML = change.doc.get('quizTotal')
+//   })
+// })
 
 
 
