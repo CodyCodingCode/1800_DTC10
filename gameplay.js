@@ -36,41 +36,41 @@ let pointIncrement = 1;
 //-- The following checks Firebase for data and--//
 //-- Adds it to the user's data if missing     --//
 //-----------------------------------------------//
-function insertScoreVals() {
-  //check user authentication with firebase
-  firebase.auth().onAuthStateChanged(user => {
-    //if the user is logged in/exists within firestore
-    if (user) {
-      //access the userid fields
-      currentUser = db.collection("users").doc(user.uid)
-      currentUser.get()
-        .then(userDoc => {
-          // I believe these are local scope variables
-          // These will store whatever is in these fields (if they exist)
-          var totalScore = userDoc.data().score;
-          var totalQuizzes = userDoc.data().quizTotal;
+// function insertScoreVals() {
+//   //check user authentication with firebase
+//   firebase.auth().onAuthStateChanged(user => {
+//     //if the user is logged in/exists within firestore
+//     if (user) {
+//       //access the userid fields
+//       currentUser = db.collection("users").doc(user.uid)
+//       currentUser.get()
+//         .then(userDoc => {
+//           // I believe these are local scope variables
+//           // These will store whatever is in these fields (if they exist)
+//           var totalScore = userDoc.data().score;
+//           var totalQuizzes = userDoc.data().quizTotal;
           
-          //If either of the fields don't exist, create them in firestore
-          if (totalScore == null) {
-            currentUser.update({
-              score: 0,
-            });
-          } else {
-            console.log("Score present in database.");
-          };
-          if (totalQuizzes == null) {
-            currentUser.update({
-              quizTotal: 0,
-            });
-          } else {
-            console.log("Quiz Total present in database.");
-          }
-        })
-    } else {
-      console.log("No user is signed in");
-    }
-  });
-}
+//           //If either of the fields don't exist, create them in firestore
+//           if (totalScore == null) {
+//             currentUser.update({
+//               score: 0,
+//             });
+//           } else {
+//             console.log("Score present in database.");
+//           };
+//           if (totalQuizzes == null) {
+//             currentUser.update({
+//               quizTotal: 0,
+//             });
+//           } else {
+//             console.log("Quiz Total present in database.");
+//           }
+//         })
+//     } else {
+//       console.log("No user is signed in");
+//     }
+//   });
+// }
 
 //calls function to ensure scores present in firebase/firestore
 //insertScoreVals();
@@ -156,7 +156,7 @@ function displayScores() {
 
 //calls function to ensure scores present in firebase/firestore
 
-insertScoreVals();
+//insertScoreVals();
 //Calls function to run clicker game - this works, but does not update the printout
 displayScores();
 
