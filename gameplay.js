@@ -33,7 +33,7 @@ let pointIncrement = 1;
 //let playbutton = document.querySelector("#play");
 
 //-----------------------------------------------//
-//-- The following is checks FB for data and   --//
+//-- The following checks Firebase for data and--//
 //-- Adds it to the user's data if missing     --//
 //-----------------------------------------------//
 function insertScoreVals() {
@@ -109,6 +109,9 @@ insertScoreVals();
 //Calls function to run clicker game - this works, but does not update the printout
 displayScores();
 
+
+//====================================================================================
+//====================================================================================
 //increment our main score
 function addPoints(currentUser) {
   console.log("inside");
@@ -118,7 +121,8 @@ function addPoints(currentUser) {
   })
 }; 
 
-
+//====================================================================================
+//====================================================================================
 //define functions to use in our listener
 function activateButton(button) {
   button.disabled = false;
@@ -128,6 +132,8 @@ function deactivateButton(button) {
   button.disabled = true;
 };
 
+//====================================================================================
+//====================================================================================
 // Control the buttons in our game
 function buttonController(score) {
   //---- Local News Updgrade
@@ -210,7 +216,8 @@ function buttonController(score) {
   }
 };
 
-
+//====================================================================================
+//====================================================================================
 // Real-time, user-specific score, quiz listener
 // This actually listens to the specific user's data, not all users for changes
 firebase.auth().onAuthStateChanged((user) => {
