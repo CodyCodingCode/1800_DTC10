@@ -56,18 +56,18 @@ function insertScoreVals() {
               score: 0,
             });
           } else {
-            console.log("Score present in database.")
+            console.log("Score present in database.");
           };
           if (totalQuizzes == null) {
             currentUser.update({
               quizTotal: 0,
             });
           } else {
-            console.log("Quiz Total present in database.")
+            console.log("Quiz Total present in database.");
           }
         })
     } else {
-      console.log("No user is signed in")
+      console.log("No user is signed in");
     }
   });
 }
@@ -75,6 +75,57 @@ function insertScoreVals() {
 //calls function to ensure scores present in firebase/firestore
 //insertScoreVals();
 
+//====================================================================================
+//====================================================================================
+//Potentially making a money manager?
+let moneyManager = 3;
+let managerIncrement = 1;
+
+//does this need to go into a function? Can be included in point/quiz score above^^
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    currentUser = db.collection("users").doc(user.uid);
+
+    currentUser.get()
+      .then(userDoc => {
+
+        var manager = userDoc.data().moneyManager;
+
+        if (manager == null) {
+          currentUser.update({
+            manager: 0,
+          });
+        } else {
+          console.log("Manager Total present in database");
+        }
+      });
+  }
+});
+
+//This works, but currently will always run, constantly
+//Should do two things - increase increment above 1000ms, and build mechanism to purchase
+//'campaign managers' so that it starts as 'off' and is a late-game feature.
+
+// setInterval(function () {
+//   firebase.auth().onAuthStateChanged(user => {
+//     if (user) {
+//       moneyManager += 1
+//       console.log(moneyManager)
+//       currentUser = db.collection("users").doc(user.uid) 
+
+//       if (moneyManager > 2) {
+//         console.log("Manager Conducting Misinformation Campaign for you.")
+//         currentUser.update({
+//           score: firebase.firestore.FieldValue.increment(1)
+//         })
+//       }
+//     }
+//   })
+// }, 1000);
+
+
+//====================================================================================
+//====================================================================================
 
 
 
@@ -118,7 +169,7 @@ function addPoints(currentUser) {
   //update the value stored in the score field associated with the user
   currentUser.update({
     score: firebase.firestore.FieldValue.increment(pointIncrement)
-  })
+  });
 }; 
 
 //====================================================================================
