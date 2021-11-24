@@ -231,101 +231,6 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 
-
-//Add a listener to update the score. .onsnapshot checks our database for changes.
-//Currently, this works for the player
-// firebase.auth().onAuthStateChanged((user) => {
-//   if (user) {
-//     var targetUser = user.uid;
-//     console.log(targetUser);
-//     console.log('hello');
-
-
-
-//     // db.collection('users').where("user.uid", "==", targetUser).onSnapshot(snapshot => {
-//     //   let changes = snapshot.docChanges();
-//     //   changes.forEach(change => {
-//   }  //     console.log(change.doc.data());
-// });
-// console.log("Cheese" + targetUser);
-
-// firebase.auth().onAuthStateChanged((user) => {
-//   if (user) {
-//     var uid = user.uid;
-//     // ...
-//   } else {
-//     // User is signed out
-//     // ...
-//   }
-// });
-
-
-
-// db.collection('users').onSnapshot(snapshot => {
-//   firebase.auth().onAuthStateChanged(user => {
-//     if (user) {
-//       currentUser = db.collection("users").doc(user.uid)
-
-//       let changes = snapshot.currentUser.docChanges();
-//       changes.forEach(change => {
-//         console.log(change.doc.data());
-//         score_tally.innerHTML = change.doc.get('score');
-//         quiz_tally.innerHTML = change.doc.get('quizTotal');
-//       });
-
-//       currentUser.get()
-//         .then(userDoc => {
-//           //if 
-//           if (userDoc.data().score >= 20) {
-//             localNews.disabled = false;
-//           }
-
-
-//         });
-    
-//     } else {
-//       console.log("Error! No User Found")
-//     };
-//   });
-// });
-
-
-//Trying the button lock feature with a listener instead
-// db.collection('users').onSnapshot(snapshot => {
-//   let changes = snapshot.docChanges();
-//   changes.forEach(change => {
-//     if (change.doc.get('score') >= 20) {
-//       console.log(change.doc.get('score'));
-//       localNews.disabled = false;
-//     };
-//   })
-// })
-
-
-//--------------------------------------------------------------------
-// This function disables quiz buttons that the user does not have the points for
-// function lockButtons() {
-//   //We will use the data stored on Firebase to determine quiz eligibility
-//   firebase.auth().onAuthStateChanged(user => {
-//     if (user) {
-//       currentUser = db.collection("users").doc(user.uid);
-
-//       currentUser.get()
-//       .then(userDoc => {
-//         let currentTally = userDoc.data().score;
-
-//         //lock local news quiz until poin threshold
-//         if (currentTally >= 20) {
-//           localNews.disabled = false;
-//         };
-//       })
-//     }
-//   })
-// }
-
-//This needs to run at the top
-// lockButtons();
-
 //copy for safekeeping - original listener for points
 // db.collection('users').onSnapshot(snapshot => {
 //   let changes = snapshot.docChanges();
@@ -335,8 +240,6 @@ firebase.auth().onAuthStateChanged((user) => {
 //     quiz_tally.innerHTML = change.doc.get('quizTotal')
 //   })
 // })
-
-
 
 
 //--------------------------------------------------------------------
