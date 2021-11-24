@@ -118,7 +118,7 @@
         <button type="button" class="btn btn-success btn-lg px-4 gap-3">Restart</button>
         <a href="profile_page.html"><button type="button" class="btn btn-success btn-lg px-4 gap-3">Account
             Settings</button></a>
-        <a href="login.html"><button type="button" class="btn btn-success btn-lg px-4 gap-3">Logout</button></a>
+        <a href="login.html"><button type="button" class="btn btn-success btn-lg px-4 gap-3" onclick="logout()">Logout</button></a>
       </div>
     </div>
   </div><br><br>
@@ -153,6 +153,8 @@
     </footer>
   </div>
   <script>
+
+    //This greets the user upon logging in and reaching the main/landing page
     function insertName() {
       firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -174,7 +176,21 @@
         }
       });
     }
+
+    //Call the above function
     insertName();
+
+    //Create Logout button fucntionality
+    function logout() {
+      console.log("Logging out a user.");
+      firebase.auth().signOut().then(() => {
+        // Succesful logout
+        window.location.href = "login.html";
+      }).catch((error) => {
+        // an error occurred
+        console.log("Unknown Error!")
+      });
+    }
   </script>
 </body>
 

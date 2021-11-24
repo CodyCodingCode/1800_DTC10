@@ -54,10 +54,7 @@ let playbutton = document.querySelector("#play");
 //new main button to drive clicker
 let mainbutton = document.querySelector("#mainbutton");
 
-// function that redirects to a quiz page
-function redirecttoquiz() {
-  window.location.assign("Quiz_Page.html")
-}
+
 
 //display the scores
 function displayScores() {
@@ -110,3 +107,33 @@ db.collection('users').onSnapshot(snapshot => {
     quiz_tally.innerHTML = change.doc.get('quizTotal')
   })
 })
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+//----------------------Non-Game Related JS---------------------------
+//Create Logout button functionality
+function logout() {
+  console.log("Logging out a user.");
+  firebase.auth().signOut().then(() => {
+    // Succesful logout
+    window.location.href = "login.html";
+  }).catch((error) => {
+    // an error occurred
+    console.log("Unknown Error!")
+  });
+}
+
+// function that redirects to a quiz page
+function redirecttoquiz() {
+  window.location.assign("Quiz_Page.html")
+}
