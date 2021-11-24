@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Quiz Page</title>
-  <link rel="stylesheet" href="styles/my_style.css">
+  <link rel="stylesheet" href="/styles/my_style.css">
 
   <!-- Firebase 8 CDNs-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,7 +24,7 @@
 
   <div class="container mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
-      <div class="py-2 h5"><b>Question: </b><span id="first-goes-here"></span></div>
+      <div class="py-2 h5"><b>Question 1: </b><span id="first-goes-here"></span></div>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <br><br>
         <label class="options">
@@ -41,7 +41,7 @@
         <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
         <label class="options">
           <!--Added id to radio button-->
-          <input type="radio" name="radio" id="fourthSelectionChoice"> <span class="checkmark"
+          <input type="radio" name="radio" id="CorrectChoice"> <span class="checkmark"
             id="fourth_choice"></span>
         </label>
         <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="d-flex align-items-center pt-3">
-      <a href="gameplay.html">
+      <a href="/gameplay.html">
         <div id="prev"> <button class="btn btn-primary">Back</button></div>
       </a>
       <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton"
@@ -61,6 +61,9 @@
       <div class="popup" onclick="myFunction()">
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
+      <a href="Quiz_7_question_3.html">
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button" disabled>Next</button> </div>
+      </a>
     </div>
 
   </div>
@@ -74,10 +77,11 @@
         if (user) {
           var popup = document.getElementById("myPopup");
           //added variable for the right radio button
-          var rightanswer = document.querySelector("#fourthSelectionChoice")
+          var rightanswer = document.querySelector("#CorrectChoice")
 
           //if the right radio button is checked when click event occurs, right answer pop-up shows
           if (rightanswer.checked == true) {
+            console.log('yep')
             popup.classList.toggle("show");
             currentUser.update({
               // increment the quiz_total in the firebase by 1 if user gets the right answer
@@ -99,7 +103,7 @@
           // Do something for the current logged-in user here: 
           console.log('H8cjwzL3KxbOtpm36JxiSEO1g7q1');
           //go to the correct user document by referencing to the user uid
-          currentUser = db.collection("Quiz_Resources").doc('Quiz_Zero');
+          currentUser = db.collection("Quiz_Resources").doc('Quiz_7');
           //get the document for current user.
           currentUser.get()
             .then(userDoc => {

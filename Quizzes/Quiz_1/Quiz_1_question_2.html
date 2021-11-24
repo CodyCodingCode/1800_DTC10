@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Page</title>
+  <link rel="stylesheet" href="/styles/my_style.css">
+
+  <!-- Firebase 8 CDNs-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <!--Firebase Authentication API Keys -->
+  <script src="/scripts/firebaseAPI_DTC10.js"></script>
+
+  <!-- Bootstrap FirebaseUI CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container mt-sm-5 my-1">
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+      <div class="py-2 h5"><b>Question 2: </b><span id="first-goes-here"></span></div>
+      <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+        <br><br>
+        <label class="options">
+          <input type="radio" name="radio"> <span class="checkmark" id="first_choice"></span>
+        </label>
+        <div class="py-2 h5"><b></b><span id="second-goes-here"></span></div>
+        <label class="options">
+          <!--Added id to radio button-->
+          <input type="radio" name="radio" id="CorrectChoice"> <span class="checkmark"
+            id="fourth_choice"></span>
+        </label>
+        <div class="py-2 h5"><b></b><span id="third-goes-here"></span></div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center pt-3">
+      <a href="Quiz_1_question_1.html">
+        <div id="prev"> <button class="btn btn-primary">Back</button></div>
+      </a>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton"
+          onclick="myFunction()">Submit</button> </div>
+
+      <div class="popup" onclick="myFunction()">
+        <span class="popuptext" id="myPopup1">You got it right!</span>
+      </div>
+      <a href="Quiz_1_question_3.html">
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button">Next</button> </div>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    // When the user clicks on div, open the popup
+
+    function myFunction() {
+      firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+          var popup = document.getElementById("myPopup1");
+          //added variable for the right radio button
+          var rightanswer = document.querySelector("#CorrectChoice")
+
+          //if the right radio button is checked when click event occurs, right answer pop-up shows
+          if (rightanswer.checked == true) {
+            console.log('yep')
+            popup.classList.toggle("show");
+            currentUser.update({
+              // increment the quiz_total in the firebase by 1 if user gets the right answer
+              quizTotal: firebase.firestore.FieldValue.increment(1)
+            })
+          }
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("users").doc(user.uid);
+        } else {
+          // No user is signed in.
+        }
+      });
+    }
+
+    function insertName() {
+      firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+          // Do something for the current logged-in user here: 
+          console.log('H8cjwzL3KxbOtpm36JxiSEO1g7q1');
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("Quiz_Resources").doc('Quiz_Zero');
+          //get the document for current user.
+          currentUser.get()
+            .then(userDoc => {
+              var first = userDoc.data().Question_2;
+              var second = userDoc.data().c2hoice_1;
+              var third = userDoc.data().c2hoice_2;
+              // var correct = userDoc.data().choice_5;
+
+              $("#first-goes-here").text(first);
+              $("#second-goes-here").text(second); //using jquery
+              $("#third-goes-here").text(third);
+              // $("#correct-goes-here").text(correct);
+            })
+        } else {
+          // No user is signed in.
+        }
+      });
+    }
+    insertName();
+  </script>
+</body>
+
+</html>

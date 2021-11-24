@@ -315,7 +315,35 @@ function logout() {
   });
 }
 
-// function that redirects to a quiz page
+// functions that redirects to a quiz page
 function redirecttoquiz() {
-  window.location.assign("Quiz_Page.html")
+  window.location.href="Quizzes/Quiz_1/Quiz_1_question_1.html"
+}
+
+function redirecttoquiz2() {
+  window.location.href="Quizzes/Quiz_2/Quiz_2_question_1.html"
+}
+
+function redirecttoquiz3() {
+  window.location.href="Quizzes/Quiz_3/Quiz_3_question_1.html"
+}
+
+function redirecttoquiz4() {
+  window.location.href="Quizzes/Quiz_4/Quiz_4_question_1.html"
+}
+
+function redirecttoquiz5() {
+  window.location.href="Quizzes/Quiz_5/Quiz_5_question_1.html"
+}
+
+function redirecttoquiz6() {
+  window.location.href="Quizzes/Quiz_6/Quiz_6_question_1.html"
+}
+
+function redirecttoquiz7() {
+  window.location.href="Quizzes/Quiz_7/Quiz_7_question_1.html"
+}
+
+function redirecttoquiz8() {
+  window.location.href="Quizzes/Quiz_8/Quiz_8_question_1.html"
 }
