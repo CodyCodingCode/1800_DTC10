@@ -115,7 +115,7 @@ function displayScores() {
           
           //make our button clickable
           mainbutton.onclick = () => addPoints(currentUser);
-          localNews.onclick = () => upgradePurchase(currentUser, -15, false);
+          localNews.onclick = () => upgradePurchase(currentUser, -15, redirecttoquiz(), false);
           socialBots.onclick = () => upgradePurchase(currentUser, -115, false);
           cabelNews.onclick = () => upgradePurchase(currentUser, -315, false);
           blogs.onclick = () => upgradePurchase(currentUser, -515, false);
@@ -156,11 +156,12 @@ function addPoints(currentUser) {
 //====================================================================================
 //====================================================================================
 //Reduce our main score
-function upgradePurchase(currentUser, amount, manager) {
+function upgradePurchase(currentUser, amount, functionName, manager) {
   //update the value stored in the score field associated with the user
   currentUser.update({
     score: firebase.firestore.FieldValue.increment(amount),
   });
+  functionName;
   console.log('test button');
   if (manager == true) {
     console.log('test manager');
@@ -325,7 +326,7 @@ function logout() {
 
 // functions that redirects to a quiz page
 function redirecttoquiz() {
-  window.location.href="Quizzes/Quiz_1/Quiz_1_question_1.html"
+  window.location.href="Quizzes/Quiz_1/Quiz_1_question_1.html";
 }
 
 function redirecttoquiz2() {
