@@ -215,6 +215,7 @@
               var totalQuizzes = userDoc.data().quizTotal;
               var manager = userDoc.data().moneyManager;
               var clicks = userDoc.data().clicks;
+              var incrementScore = userDoc.data().incrementScore;
 
               //If these fields don't exist, create them in firestore
               // auto-increment value
@@ -249,7 +250,16 @@
               } else {
                 console.log("Click count present in database.")
               }
-            })
+
+              //Increment Score
+              if (incrementScore == null) {
+                currentUser.update({
+                  incrementScore: 1,
+                });
+              } else {
+                console.log("Increment Score present in database.")
+              }
+            });
         } else {
           console.log("No user is signed in");
         }

@@ -29,7 +29,7 @@ let podcasts = document.querySelector("#podcasts")
 let adverts = document.querySelector("#advertisements")
 
 //Click incrementer
-let pointIncrement = 1;
+
 
 //let pausebutt = document.querySelector("#pause");
 //let playbutton = document.querySelector("#play");
@@ -108,13 +108,14 @@ function displayScores() {
           var currentScore = userDoc.data().score;
           var currentQuiz = userDoc.data().quizTotal;
           var currentMgmt = userDoc.data().manager;
+          var increment = userDoc.data().incrementScore;
           //this should display the numbers
           score_tally.innerHTML = currentScore;
           quiz_tally.innerHTML = currentQuiz;
 
           
           //make our button clickable
-          mainbutton.onclick = () => addPoints(currentUser);
+          mainbutton.onclick = () => addPoints(currentUser, increment);
           localNews.onclick = () => upgradePurchase(currentUser, -15, redirecttoquiz(), false);
           socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoqui2(), false);
           cabelNews.onclick = () => upgradePurchase(currentUser, -315, redirecttoquiz3(), false);
@@ -145,11 +146,11 @@ displayScores();
 //====================================================================================
 //====================================================================================
 //increment our main score
-function addPoints(currentUser) {
+function addPoints(currentUser, increment) {
   console.log("inside");
   //update the value stored in the score field associated with the user
   currentUser.update({
-    score: firebase.firestore.FieldValue.increment(pointIncrement),
+    score: firebase.firestore.FieldValue.increment(increment),
   });
 }; 
 
