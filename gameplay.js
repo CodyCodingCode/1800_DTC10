@@ -116,13 +116,13 @@ function displayScores() {
           //make our button clickable
           mainbutton.onclick = () => addPoints(currentUser);
           localNews.onclick = () => upgradePurchase(currentUser, -15, redirecttoquiz(), false);
-          socialBots.onclick = () => upgradePurchase(currentUser, -115, false);
-          cabelNews.onclick = () => upgradePurchase(currentUser, -315, false);
-          blogs.onclick = () => upgradePurchase(currentUser, -515, false);
-          celebs.onclick = () => upgradePurchase(currentUser, -715, false);
-          altnews.onclick = () => upgradePurchase(currentUser, -915, false);
-          podcasts.onclick = () => upgradePurchase(currentUser, -1115, false);
-          adverts.onclick = () => upgradePurchase(currentUser, -1315, false);
+          socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoqui2(), false);
+          cabelNews.onclick = () => upgradePurchase(currentUser, -315, redirecttoquiz3(), false);
+          blogs.onclick = () => upgradePurchase(currentUser, -515, redirecttoquiz4(), false);
+          celebs.onclick = () => upgradePurchase(currentUser, -715, redirecttoquiz5(), false);
+          altnews.onclick = () => upgradePurchase(currentUser, -915, redirecttoquiz6(), false);
+          podcasts.onclick = () => upgradePurchase(currentUser, -1115, redirecttoquiz7(), false);
+          adverts.onclick = () => upgradePurchase(currentUser, -1315, redirecttoquiz8(), false);
           //Set low for testing purposes
           managerButton.onclick = () => upgradePurchase(currentUser, -100, true);
 
