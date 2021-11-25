@@ -13,7 +13,9 @@ var currentUser;
 // these are global scope (I think)
 //Main Clicker
 let mainbutton = document.querySelector("#mainbutton");
+let managerButton = document.querySelector('#hireManager');
 //Score Display
+let manager_tally = document.querySelector("#manager");
 let score_tally = document.querySelector("#score");
 let quiz_tally = document.querySelector("#quiz");
 //Quiz Buttons
@@ -36,98 +38,61 @@ let pointIncrement = 1;
 //-- The following checks Firebase for data and--//
 //-- Adds it to the user's data if missing     --//
 //-----------------------------------------------//
-// function insertScoreVals() {
-//   //check user authentication with firebase
-//   firebase.auth().onAuthStateChanged(user => {
-//     //if the user is logged in/exists within firestore
-//     if (user) {
-//       //access the userid fields
-//       currentUser = db.collection("users").doc(user.uid)
-//       currentUser.get()
-//         .then(userDoc => {
-//           // I believe these are local scope variables
-//           // These will store whatever is in these fields (if they exist)
-//           var totalScore = userDoc.data().score;
-//           var totalQuizzes = userDoc.data().quizTotal;
-          
-//           //If either of the fields don't exist, create them in firestore
-//           if (totalScore == null) {
-//             currentUser.update({
-//               score: 0,
-//             });
-//           } else {
-//             console.log("Score present in database.");
-//           };
-//           if (totalQuizzes == null) {
-//             currentUser.update({
-//               quizTotal: 0,
-//             });
-//           } else {
-//             console.log("Quiz Total present in database.");
-//           }
-//         })
-//     } else {
-//       console.log("No user is signed in");
-//     }
-//   });
-// }
-
-//calls function to ensure scores present in firebase/firestore
-//insertScoreVals();
 
 //====================================================================================
 //====================================================================================
 //Potentially making a money manager?
-let moneyManager = 3;
-let managerIncrement = 1;
+let managers;
+let managerIncrement = 5000;
 
 //does this need to go into a function? Can be included in point/quiz score above^^
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    currentUser = db.collection("users").doc(user.uid);
+// firebase.auth().onAuthStateChanged(user => {
+//   if (user) {
+//     currentUser = db.collection("users").doc(user.uid);
 
-    currentUser.get()
-      .then(userDoc => {
+//     currentUser.get()
+//       .then(userDoc => {
 
-        var manager = userDoc.data().moneyManager;
+//         var manager = userDoc.data().moneyManager;
 
-        if (manager == null) {
-          currentUser.update({
-            manager: 0,
-          });
-        } else {
-          console.log("Manager Total present in database");
-        }
-      });
-  }
-});
+//         if (manager == null) {
+//           currentUser.update({
+//             manager: 0,
+//           });
+//         } else {
+//           console.log("Manager Total present in database");
+//         }
+//       });
+//   }
+// });
 
 //This works, but currently will always run, constantly
 //Should do two things - increase increment above 1000ms, and build mechanism to purchase
 //'campaign managers' so that it starts as 'off' and is a late-game feature.
 
-// setInterval(function () {
-//   firebase.auth().onAuthStateChanged(user => {
-//     if (user) {
-//       moneyManager += 1
-//       console.log(moneyManager)
-//       currentUser = db.collection("users").doc(user.uid) 
+setInterval(function () {
+   firebase.auth().onAuthStateChanged(user => {
+     if (user) {
+       currentUser = db.collection("users").doc(user.uid);
+       
+       db.collection('users').doc(user.uid)
+       .onSnapshot((doc) => { 
+         managers = doc.get('manager');
+       });
 
-//       if (moneyManager > 2) {
-//         console.log("Manager Conducting Misinformation Campaign for you.")
-//         currentUser.update({
-//           score: firebase.firestore.FieldValue.increment(1)
-//         })
-//       }
-//     }
-//   })
-// }, 10000);
+       if (managers > 0) {
+         console.log("Manager Conducting Misinformation Campaign for you.")
+         currentUser.update({
+           score: firebase.firestore.FieldValue.increment(managers)
+         })
+       }
+     }
+   })
+ }, managerIncrement);
 
 
 //====================================================================================
 //====================================================================================
-
-
 
 //display the scores
 function displayScores() {
@@ -142,22 +107,38 @@ function displayScores() {
           //local scope variables
           var currentScore = userDoc.data().score;
           var currentQuiz = userDoc.data().quizTotal;
+          var currentMgmt = userDoc.data().manager;
           //this should display the numbers
           score_tally.innerHTML = currentScore;
           quiz_tally.innerHTML = currentQuiz;
+
           
           //make our button clickable
           mainbutton.onclick = () => addPoints(currentUser);
+          localNews.onclick = () => upgradePurchase(currentUser, -15, false);
+          socialBots.onclick = () => upgradePurchase(currentUser, -115, false);
+          cabelNews.onclick = () => upgradePurchase(currentUser, -315, false);
+          blogs.onclick = () => upgradePurchase(currentUser, -515, false);
+          celebs.onclick = () => upgradePurchase(currentUser, -715, false);
+          altnews.onclick = () => upgradePurchase(currentUser, -915, false);
+          podcasts.onclick = () => upgradePurchase(currentUser, -1115, false);
+          adverts.onclick = () => upgradePurchase(currentUser, -1315, false);
+          //Set low for testing purposes
+          managerButton.onclick = () => upgradePurchase(currentUser, -100, true);
+
+
+          
+
+
+
+
 
         })
     }
   }) 
 };
 
-//calls function to ensure scores present in firebase/firestore
-
-//insertScoreVals();
-//Calls function to run clicker game - this works, but does not update the printout
+//Calls function to display clicker game scores
 displayScores();
 
 
@@ -168,9 +149,26 @@ function addPoints(currentUser) {
   console.log("inside");
   //update the value stored in the score field associated with the user
   currentUser.update({
-    score: firebase.firestore.FieldValue.increment(pointIncrement)
+    score: firebase.firestore.FieldValue.increment(pointIncrement),
   });
 }; 
+
+//====================================================================================
+//====================================================================================
+//Reduce our main score
+function upgradePurchase(currentUser, amount, manager) {
+  //update the value stored in the score field associated with the user
+  currentUser.update({
+    score: firebase.firestore.FieldValue.increment(amount),
+  });
+  console.log('test button');
+  if (manager == true) {
+    console.log('test manager');
+    currentUser.update({
+      manager: firebase.firestore.FieldValue.increment(1),
+    });
+  }
+}
 
 //====================================================================================
 //====================================================================================
@@ -265,6 +263,15 @@ function buttonController(score) {
     deactivateButton(adverts);
     console.log('Adverts is Deactivated');
   }
+
+  //---- Campaign Manager
+  if (score >= 100) {
+    activateButton(managerButton);
+    console.log('Campaign Manager is Activated')
+  } else if (score < 100) {
+    deactivateButton(managerButton);
+    console.log('Campaign Manager is Deactivated')
+  }
 };
 
 //====================================================================================
@@ -277,6 +284,7 @@ firebase.auth().onAuthStateChanged((user) => {
       .onSnapshot((doc) => {
         score_tally.innerHTML = doc.get('score');
         quiz_tally.innerHTML = doc.get('quizTotal');
+        manager.innerHTML = doc.get('manager');
         console.log("current data ", doc.data());
 
         // We're adding functionality to this listener.
