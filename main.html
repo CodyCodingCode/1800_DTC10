@@ -192,6 +192,7 @@
       });
     }
 
+    //This function populates new user's documents in firebase
     function insertScoreVals() {
   //check user authentication with firebase
       firebase.auth().onAuthStateChanged(user => {
@@ -248,7 +249,9 @@
       });
     }
 
+    //call the function
     insertScoreVals();
+
   </script>
 </body>
 
