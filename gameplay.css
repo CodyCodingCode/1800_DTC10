@@ -16,7 +16,7 @@
   margin-left: 30%;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 18% 14% 17% 17% 17% 17%;
+  grid-template-rows: 18% 12% 16% 16% 16% 16% 5%;
   font-family: 'IBM Plex Mono', monospace; 
 }
 
@@ -116,4 +116,31 @@
 
 #pause, #switches {
   display: none;
+}
+
+
+.helpButton{
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #b45252;
+  width: 25%;
+  height: 70%;
+  border: none;
+  text-align: center;
+  box-shadow: 0 9px #4b80ca;
+}
+
+#help{
+  align-self: start;
+  justify-self: end;
+  margin-right: 5%;
+}
+
+#aboutTheGame{
+  align-self: start;
+  justify-self: start;
+  margin-left: 5%;
 }
