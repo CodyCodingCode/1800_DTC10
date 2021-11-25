@@ -41,9 +41,9 @@
     </div>
 
     <div class="d-flex align-items-center pt-3">
-      <a href="Quiz_1_question_1.html">
-        <div id="prev"> <button class="btn btn-primary">Back</button></div>
-      </a>
+
+        <div id="prev"> <button class="btn btn-primary" onclick="confirmation_box()">Home</button></div>
+
       <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton"
           onclick="myFunction()">Submit</button> </div>
 
@@ -58,6 +58,14 @@
   </div>
 
   <script>
+
+    // When the user clicks home/back, confirm that they actually want to leave.
+    function confirmation_box(){
+      if (confirm("You will have to pay another entrance fee to take the quiz again! Are you sure you want to leave?")){
+        window.location.href="/gameplay.html"
+      }
+    }
+
     // When the user clicks on div, open the popup
 
     function myFunction() {

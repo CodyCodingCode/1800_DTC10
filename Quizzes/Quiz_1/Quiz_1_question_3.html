@@ -40,21 +40,18 @@
         </label>
         <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
         <label class="options">
-          <!--Added id to radio button-->
+
           <input type="radio" name="radio"> <span class="checkmark"
             id="fourth_choice"></span>
         </label>
         <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
-        <!-- <label class="options">
-          <input type="radio" name="radio"> <span class="checkmark" id="fifth_choice"></span>
-        </label>
-        <div class="py-2 h5"><b></b><span id="correct-goes-here"></span></div> -->
+        
       </div>
     </div>
     <div class="d-flex align-items-center pt-3">
-      <a href="Quiz_1_question_2.html">
-        <div id="prev"> <button class="btn btn-primary">Back</button></div>
-      </a>
+
+        <div id="prev"> <button class="btn btn-primary" onclick="confirmation_box()">Home</button></div>
+
       <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton"
           onclick="myFunction()">Submit</button> </div>
 
@@ -69,6 +66,12 @@
   </div>
 
   <script>
+    // When the user clicks home/back, confirm that they actually want to leave.
+    function confirmation_box(){
+      if (confirm("You will have to pay another entrance fee to take the quiz again! Are you sure you want to leave?")){
+        window.location.href="/gameplay.html"
+      }
+    }
     // When the user clicks on div, open the popup
 
     function myFunction() {
@@ -82,6 +85,7 @@
           //if the right radio button is checked when click event occurs, right answer pop-up shows
           if (rightanswer.checked == true) {
             console.log('yep')
+            // the next/continue buttons are only shown after the correct answer is submitted
             document.getElementById("next_button").style.display = "";
             popup.classList.toggle("show");
             currentUser.update({
