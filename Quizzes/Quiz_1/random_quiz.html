@@ -180,7 +180,9 @@
                     popup.classList.toggle("show");
                     currentUser.update({
                       // increment the quiz_total in the firebase by 1 if user gets the right answer
-                      quizTotal: firebase.firestore.FieldValue.increment(1),
+                      quizTotal: firebase.firestore.FieldValue.increment(0.5),
+                      incrementScore: firebase.firestore.FieldValue.increment(0.5),
+                      score: firebase.firestore.FieldValue.increment(10)
                     })
                   } 
                   else if (fifth != sixth){
@@ -194,7 +196,9 @@
                     popup.classList.toggle("show");
                     currentUser.update({
                       // increment the quiz_total in the firebase by 1 if user gets the right answer
-                      quizTotal: firebase.firestore.FieldValue.increment(1),
+                      quizTotal: firebase.firestore.FieldValue.increment(0.5),
+                      incrementScore: firebase.firestore.FieldValue.increment(0.5),
+                      score: firebase.firestore.FieldValue.increment(10)
                     })
                   } 
                   else if (second != sixth) {
@@ -208,7 +212,9 @@
                     popup.classList.toggle("show");
                     currentUser.update({
                       // increment the quiz_total in the firebase by 1 if user gets the right answer
-                      quizTotal: firebase.firestore.FieldValue.increment(1),
+                      quizTotal: firebase.firestore.FieldValue.increment(0.5),
+                      incrementScore: firebase.firestore.FieldValue.increment(0.5),
+                      score: firebase.firestore.FieldValue.increment(10)
                     })
                   } 
                   else if (third != sixth){
@@ -222,7 +228,9 @@
                     popup.classList.toggle("show");
                     currentUser.update({
                       // increment the quiz_total in the firebase by 1 if user gets the right answer
-                      quizTotal: firebase.firestore.FieldValue.increment(1),
+                      quizTotal: firebase.firestore.FieldValue.increment(0.5),
+                      incrementScore: firebase.firestore.FieldValue.increment(0.5),
+                      score: firebase.firestore.FieldValue.increment(10)
                     })
                   } 
                   else if (fourth != sixth) {
