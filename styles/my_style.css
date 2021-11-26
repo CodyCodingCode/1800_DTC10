@@ -7,11 +7,15 @@
 }
 
 body {
-  color: #f2f0e5;
+  background-color: #f2f0e5;
 }
 
-#buttondiv{
-  padding-left: 8px;
+#buttonsubmit{
+  padding-left: 12px;
+}
+
+#buttonnext{
+  padding-left: 12px;
 }
 
 .container {
