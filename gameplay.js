@@ -117,13 +117,13 @@ function displayScores() {
           //make our button clickable
           mainbutton.onclick = () => addPoints(currentUser, increment);
           localNews.onclick = () => upgradePurchase(currentUser, -15, redirecttoquiz(), false);
-          socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoquiz2(), false);
-          cabelNews.onclick = () => upgradePurchase(currentUser, -315, redirecttoquiz3(), false);
-          blogs.onclick = () => upgradePurchase(currentUser, -515, redirecttoquiz4(), false);
-          celebs.onclick = () => upgradePurchase(currentUser, -715, redirecttoquiz5(), false);
-          altnews.onclick = () => upgradePurchase(currentUser, -915, redirecttoquiz6(), false);
-          podcasts.onclick = () => upgradePurchase(currentUser, -1115, redirecttoquiz7(), false);
-          adverts.onclick = () => upgradePurchase(currentUser, -1315, redirecttoquiz8(), false);
+          socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoquiz(), false);
+          cabelNews.onclick = () => upgradePurchase(currentUser, -315, redirecttoquiz(), false);
+          blogs.onclick = () => upgradePurchase(currentUser, -515, redirecttoquiz(), false);
+          celebs.onclick = () => upgradePurchase(currentUser, -715, redirecttoquiz(), false);
+          altnews.onclick = () => upgradePurchase(currentUser, -915, redirecttoquiz(), false);
+          podcasts.onclick = () => upgradePurchase(currentUser, -1115, redirecttoquiz(), false);
+          adverts.onclick = () => upgradePurchase(currentUser, -1315, redirecttoquiz(), false);
           //Set low for testing purposes
           managerButton.onclick = () => upgradePurchase(currentUser, -100, null, true);
 
@@ -329,36 +329,36 @@ function logout() {
 
 // functions that redirects to a quiz page
 function redirecttoquiz() {
-  window.location.href="Quizzes/Quiz_1/Quiz_1_question_1.html";
+  window.location.href="Quizzes/Quiz_1/random_quiz.html";
 }
 
-function redirecttoquiz2() {
-  window.location.href="Quizzes/Quiz_2/Quiz_2_question_1.html";
-}
+// function redirecttoquiz2() {
+//   window.location.href="Quizzes/Quiz_2/Quiz_2_question_1.html";
+// }
 
-function redirecttoquiz3() {
-  window.location.href="Quizzes/Quiz_3/Quiz_3_question_1.html";
-}
+// function redirecttoquiz3() {
+//   window.location.href="Quizzes/Quiz_3/Quiz_3_question_1.html";
+// }
 
-function redirecttoquiz4() {
-  window.location.href="Quizzes/Quiz_4/Quiz_4_question_1.html";
-}
+// function redirecttoquiz4() {
+//   window.location.href="Quizzes/Quiz_4/Quiz_4_question_1.html";
+// }
 
-function redirecttoquiz5() {
-  window.location.href="Quizzes/Quiz_5/Quiz_5_question_1.html";
-}
+// function redirecttoquiz5() {
+//   window.location.href="Quizzes/Quiz_5/Quiz_5_question_1.html";
+// }
 
-function redirecttoquiz6() {
-  window.location.href="Quizzes/Quiz_6/Quiz_6_question_1.html";
-}
+// function redirecttoquiz6() {
+//   window.location.href="Quizzes/Quiz_6/Quiz_6_question_1.html";
+// }
 
-function redirecttoquiz7() {
-  window.location.href="Quizzes/Quiz_7/Quiz_7_question_1.html";
-}
+// function redirecttoquiz7() {
+//   window.location.href="Quizzes/Quiz_7/Quiz_7_question_1.html";
+// }
 
-function redirecttoquiz8() {
-  window.location.href="Quizzes/Quiz_8/Quiz_8_question_1.html";
-}
+// function redirecttoquiz8() {
+//   window.location.href="Quizzes/Quiz_8/Quiz_8_question_1.html";
+// }
 
 //-------------------------------------------
 //help pop-up
