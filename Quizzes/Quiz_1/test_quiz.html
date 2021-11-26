@@ -130,12 +130,12 @@
     //   });
     // }
     // insertName();
-
+    var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
     function getRandomQuestion() {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           db.collection("Quiz_Questions")
-            .where("position", ">", Math.floor(Math.random() * 1000))
+            .where("position", ">", Math.floor(Math.random() * myArray.length))
             .limit(1)
             .onSnapshot(docs =>{
               docs.forEach(doc => {
