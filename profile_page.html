@@ -29,11 +29,14 @@
 
   <!-- Link to the api keys for your firebase project -->
   <script src="/scripts/firebaseAPI_DTC10.js"></script>
-<style>
-  .container {
-    padding-top: 30px;
-  }
-</style>
+  <style>
+    body{
+      background-color: #f2f0e5;
+    }
+    .container {
+      padding-top: 30px;
+    }
+  </style>
 </head>
 
 <body>
@@ -158,7 +161,7 @@
         if (user) {
 
           //go to correct user document by referencing to userid
-          currentUser = db.collection("users").doc(user.uid)  
+          currentUser = db.collection("users").doc(user.uid)
           //get the document from the current user
           currentUser.get()
             .then(userDoc => {
