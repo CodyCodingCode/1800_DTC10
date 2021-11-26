@@ -10,6 +10,17 @@ span {
   padding: 10%;
 }
 
+#ranks{
+
+    background: #ff9999;
+    padding: 20px;
+  }
+
+  #leaderboard{
+    margin-left: 10px;
+  }
+
+
 /* div {
   text-align: center;
 }
