@@ -117,7 +117,7 @@ function displayScores() {
           //make our button clickable
           mainbutton.onclick = () => addPoints(currentUser, increment);
           localNews.onclick = () => upgradePurchase(currentUser, -15, redirecttoquiz(), false);
-          socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoqui2(), false);
+          socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoquiz2(), false);
           cabelNews.onclick = () => upgradePurchase(currentUser, -315, redirecttoquiz3(), false);
           blogs.onclick = () => upgradePurchase(currentUser, -515, redirecttoquiz4(), false);
           celebs.onclick = () => upgradePurchase(currentUser, -715, redirecttoquiz5(), false);
@@ -125,7 +125,7 @@ function displayScores() {
           podcasts.onclick = () => upgradePurchase(currentUser, -1115, redirecttoquiz7(), false);
           adverts.onclick = () => upgradePurchase(currentUser, -1315, redirecttoquiz8(), false);
           //Set low for testing purposes
-          managerButton.onclick = () => upgradePurchase(currentUser, -100, true);
+          managerButton.onclick = () => upgradePurchase(currentUser, -100, null, true);
 
 
           
@@ -162,13 +162,15 @@ function upgradePurchase(currentUser, amount, functionName, manager) {
   currentUser.update({
     score: firebase.firestore.FieldValue.increment(amount),
   });
-  functionName;
+
   console.log('test button');
   if (manager == true) {
     console.log('test manager');
     currentUser.update({
       manager: firebase.firestore.FieldValue.increment(1),
     });
+
+  functionName;
   }
 }
 
@@ -331,29 +333,90 @@ function redirecttoquiz() {
 }
 
 function redirecttoquiz2() {
-  window.location.href="Quizzes/Quiz_2/Quiz_2_question_1.html"
+  window.location.href="Quizzes/Quiz_2/Quiz_2_question_1.html";
 }
 
 function redirecttoquiz3() {
-  window.location.href="Quizzes/Quiz_3/Quiz_3_question_1.html"
+  window.location.href="Quizzes/Quiz_3/Quiz_3_question_1.html";
 }
 
 function redirecttoquiz4() {
-  window.location.href="Quizzes/Quiz_4/Quiz_4_question_1.html"
+  window.location.href="Quizzes/Quiz_4/Quiz_4_question_1.html";
 }
 
 function redirecttoquiz5() {
-  window.location.href="Quizzes/Quiz_5/Quiz_5_question_1.html"
+  window.location.href="Quizzes/Quiz_5/Quiz_5_question_1.html";
 }
 
 function redirecttoquiz6() {
-  window.location.href="Quizzes/Quiz_6/Quiz_6_question_1.html"
+  window.location.href="Quizzes/Quiz_6/Quiz_6_question_1.html";
 }
 
 function redirecttoquiz7() {
-  window.location.href="Quizzes/Quiz_7/Quiz_7_question_1.html"
+  window.location.href="Quizzes/Quiz_7/Quiz_7_question_1.html";
 }
 
 function redirecttoquiz8() {
-  window.location.href="Quizzes/Quiz_8/Quiz_8_question_1.html"
+  window.location.href="Quizzes/Quiz_8/Quiz_8_question_1.html";
 }
+
+//-------------------------------------------
+//help pop-up
+var helpModal = document.querySelector("#helpModal");
+var helpButton = document.querySelector("#helpMech");
+var helpSpan = document.querySelector(".helpClose");
+
+helpButton.onclick = function () {
+  helpModal.style.display = "block";
+}
+
+helpSpan.onclick = function () {
+  helpModal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == helpModal) {
+    helpModal.style.display = "none";
+  }
+}
+
+//help pop-up
+var aboutModal = document.querySelector("#aboutModal");
+var aboutButton = document.querySelector("#aboutTheGame");
+var aboutSpan = document.querySelector("#aboutClose");
+
+aboutButton.onclick = function () {
+  aboutModal.style.display = "block";
+}
+
+aboutSpan.onclick = function () {
+  aboutModal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == aboutModal) {
+    aboutModal.style.display = "none";
+  }
+}
+
+
+
+//-------------------------------------------
+//about-us pop-up
+// var aboutModal = document.querySelector("#aboutModal");
+// var aboutButton = document.querySelector("#aboutTheGame");
+// var aboutSpan = document.querySelector("#closeAbout");
+
+// aboutButton.onclick = function() {
+//   aboutModal.style.display = "block";
+// }
+
+// aboutSpan.onclick = function() {
+//   aboutModal.style.display = "none";
+// }
+
+// window.onclick = function(event) {
+//   if (event.target == aboutModal) {
+//     aboutModal.style.display = "none";
+//   }
+// }

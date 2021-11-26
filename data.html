@@ -26,12 +26,50 @@
       var quiz = db.collection("Quiz_Questions");
       quiz.add({
         position: Math.floor(Math.random() * 1000),
-        question: "what is a good way to use social media and online sources to get my news?",
-        option_one: "Use Facebook and Instagram and follow as many news personalities as possible",
-        option_two: "I should use a news aggregator, like Google News, and customize my preferences to get a news from a broad spectrum of sources",
-        option_three: "Use alternative news websites to makes sure I see what the mainstream media won’t tell me",
-        option_four: "Trick question - I shouldn’t use it at all",
-        answer: "I should use a news aggregator, like Google News, and customize my preferences to get a news from a broad spectrum of sources",
+        question: "What is a good way to use social media and online sources to get my news?",
+        option_one: "Use Facebook and Instagram and follow as many news personalities as possible.",
+        option_two: "I should use a news aggregator, like Google News, and customize my preferences to get a news from a broad spectrum of sources.",
+        option_three: "Use alternative news websites to makes sure I see what the mainstream media won’t tell me.",
+        option_four: "Trick question - I shouldn’t use it at all.",
+        answer: "I should use a news aggregator, like Google News, and customize my preferences to get a news from a broad spectrum of sources.",
+      });
+
+      quiz.add({
+        position: Math.floor(Math.random() * 1000),
+        question: "Google, FAcebook, and other tech giants have incredibly effective algorithms that remove fake news, so I can use them without issue:",
+        option_one: "True",
+        option_two: "False",
+        answer: "False",
+      });
+
+      quiz.add({
+        position: Math.floor(Math.random() * 1000),
+        question: "A good litmus test for spotting out fake news is:",
+        option_one: "Checking to see if other leading, popular news publications are also reporting on the story.",
+        option_two: "Asking my dad to see if he’s heard anything about it on the TV.",
+        option_three: "Posting on social media to determine whether others in my network have seen the story as well.",
+        option_four: "Refresh the page a few times to make sure that the publication hasn’t posted a correction.",
+        answer: "Checking to see if other leading, popular news publications are also reporting on the story.",
+      });
+
+      quiz.add({
+        position: Math.floor(Math.random() * 1000),
+        question: "What is a primary source?",
+        option_one: "The first source referenced by a writer, signalling that it is most reputable.",
+        option_two: "The first source used by a writer in researching their article.",
+        option_three: "A source with proven academic experience regarding a field directly relating to the author’s topic.",
+        option_four: "A source with first-hand, personal knowledge of an event.",
+        answer: "A source with first-hand, personal knowledge of an event.",
+      });
+
+      quiz.add({
+        position: Math.floor(Math.random() * 1000),
+        question: "What is a secondary source?",
+        option_one: "The second source referenced by a writer in their list of citations.",
+        option_two: "A source with second-hand knowledge of an event. ",
+        option_three: "The second best academic expert in a field related to the writer’s topic.",
+        option_four: "There is no such thing as a secondary source.",
+        answer: "A source with second-hand knowledge of an event.",
       });
 
       
