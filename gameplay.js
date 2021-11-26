@@ -117,7 +117,7 @@ function displayScores() {
           //make our button clickable
           mainbutton.onclick = () => addPoints(currentUser, increment);
           localNews.onclick = () => upgradePurchase(currentUser, -15, redirecttoquiz(), false);
-          socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoqui2(), false);
+          socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoquiz2(), false);
           cabelNews.onclick = () => upgradePurchase(currentUser, -315, redirecttoquiz3(), false);
           blogs.onclick = () => upgradePurchase(currentUser, -515, redirecttoquiz4(), false);
           celebs.onclick = () => upgradePurchase(currentUser, -715, redirecttoquiz5(), false);

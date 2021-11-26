@@ -40,15 +40,14 @@
         </label>
         <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
         <label class="options">
-          <input type="radio" name="radio" id="CorrectChoice"> <span class="checkmark"
-            id="fourth_choice"></span>
+          <input type="radio" name="radio" id="CorrectChoice"> <span class="checkmark" id="fourth_choice"></span>
         </label>
         <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
       </div>
     </div>
-    <div class="d-flex align-items-center pt-3">1
+    <div class="d-flex align-items-center pt-3">
 
-        <div id="prev"> <button class="btn btn-primary" onclick="confirmation_box()">Home</button></div>
+      <div id="prev"> <button class="btn btn-primary" onclick="confirmation_box()">Home</button></div>
 
       <div class="ml-auto mr-sm-5"> <button class="btn btn-success" id="thisisthesubmitbutton"
           onclick="myFunction()">Submit</button> </div>
@@ -56,18 +55,19 @@
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
       <a href="Quiz_1_question_2.html">
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button" style="display:none;">Next</button> </div>
+        <div class="ml-auto mr-sm-5"> <button class="btn btn-secondary" id="next_button"
+            style="display:none;">Next</button> </div>
       </a>
     </div>
 
   </div>
 
   <script>
-
     // When the user clicks home/back, confirm that they actually want to leave.
-    function confirmation_box(){
-      if (confirm("You will have to pay another entrance fee to take the quiz again! Are you sure you want to leave?")){
-        window.location.href="/gameplay.html"
+    function confirmation_box() {
+      if (confirm(
+          "You will have to pay another entrance fee to take the quiz again! Are you sure you want to leave?")) {
+        window.location.href = "/gameplay.html"
       }
     }
 
@@ -99,37 +99,95 @@
       });
     }
 
-    function insertName() {
-      firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-          // Do something for the current logged-in user here: 
-          console.log('H8cjwzL3KxbOtpm36JxiSEO1g7q1');
-          //go to the correct user document by referencing to the user uid
-          currentUser = db.collection("Quiz_Resources").doc('Quiz_Zero');
-          //get the document for current user.
-          currentUser.get()
-            .then(userDoc => {
-              var first = userDoc.data().Question_1;
-              var second = userDoc.data().choice_1;
-              var third = userDoc.data().choice_2;
-              var fourth = userDoc.data().choice_3;
-              var fifth = userDoc.data().choice_4;
-              // var correct = userDoc.data().choice_5;
+    // function insertName() {
+    //   firebase.auth().onAuthStateChanged(user => {
+    //     // Check if user is signed in:
+    //     if (user) {
+    //       // Do something for the current logged-in user here: 
+    //       console.log('H8cjwzL3KxbOtpm36JxiSEO1g7q1');
+    //       //go to the correct user document by referencing to the user uid
+    //       currentUser = db.collection("Quiz_Resources").doc('Quiz_Zero');
+    //       //get the document for current user.
+    //       currentUser.get()
+    //         .then(userDoc => {
+    //           var first = userDoc.data().Question_1;
+    //           var second = userDoc.data().choice_1;
+    //           var third = userDoc.data().choice_2;
+    //           var fourth = userDoc.data().choice_3;
+    //           var fifth = userDoc.data().choice_4;
+    //           // var correct = userDoc.data().choice_5;
 
+    //           $("#first-goes-here").text(first);
+    //           $("#second-goes-here").text(second); //using jquery
+    //           $("#third-goes-here").text(third);
+    //           $("#fourth-goes-here").text(fourth);
+    //           $("#fifth-goes-here").text(fifth);
+    //           // $("#correct-goes-here").text(correct);
+    //         })
+    //     } else {
+    //       // No user is signed in.
+    //     }
+    //   });
+    // }
+    // insertName();
+
+    function getRandomQuestion() {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          db.collection("Quiz_Questions")
+            .where("position", ">", Math.floor(Math.random() * 1000))
+            .limit(1)
+            .onSnapshot(docs =>{
+              docs.forEach(doc => {
+              var first = doc.data().question;
+              var second = doc.data().option_one;
+              var third = doc.data().option_two;
+              var fourth = doc.data().option_three;
+              var fifth = doc.data().option_four;
+              var sixth = doc.data().answer;
+
+              // var questionString = "<p> " + question + "</p>";
+              // $("#question-goes-here").append(questionString);
+              // $("#first-goes-here").append(first);
+              // $("#second-goes-here").append(second);
               $("#first-goes-here").text(first);
-              $("#second-goes-here").text(second); //using jquery
+              $("#second-goes-here").text(second);
               $("#third-goes-here").text(third);
               $("#fourth-goes-here").text(fourth);
               $("#fifth-goes-here").text(fifth);
-              // $("#correct-goes-here").text(correct);
             })
-        } else {
+        })
+       } else {
           // No user is signed in.
         }
       });
     }
-    insertName();
+    getRandomQuestion();
+
+    // function getRandomQuestion1() {
+    //   db.collection('Quiz_Questions')
+    //     .where("position", ">", Math.floor(Math.random() * 1))
+    //     .limit(1)
+    //     .get()
+    //     .then(function (querySnapshot) {
+    //       querySnapshot.forEach(function (doc) {
+    //         var question = doc.data().question;
+    //         var option1 = doc.data().option_one;
+    //         var option2 = doc.data().option_two;
+    //         var option3 = doc.data().option_three;
+    //         var option4 = doc.data().option_four;
+    //         var answer = doc.data().answer;
+    //         // .append() over .text()? append adds to content, text writes over it
+    //         $("#first-goes-here").append(question);
+    //         $("#second-goes-here").append(option1);
+    //         $("#third-goes-here").append(option2);
+    //         $("#fourth-goes-here").append(option3);
+    //         $("#fifth-goes-here").append(option4);
+    //       });
+    //     });
+    //     getRandomQuestion1();
+
+    // }
   </script>
 </body>
 
