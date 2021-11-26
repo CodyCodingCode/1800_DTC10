@@ -43,7 +43,7 @@
         </label>
         <!-- <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div> -->
         <label class="options">
-          <input type="radio" name="radio" id="CorrectChoice"> <span class="checkmark" id="fourth_choice"></span>
+          <input type="radio" name="radio" id="choice_four"> <span class="checkmark" id="fourth_choice"></span>
           <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
         </label>
         <!-- <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div> -->
@@ -75,57 +75,7 @@
       }
     }
 
-    // When the user clicks on div, open the popup
-
-    // function quizSubmit() {
-    //   radio1.addEventListener('change', () => {
-    //     if (radio1questionvalue == correct answer value) {
-    //       point increment and next page code
-    //     } else {
-    //       no point, wrong answer message, next page
-    //     }
-    //   ))
-    // }
-    // }
-
-    // function submitQuiz() {
-    //   firebase.auth().onAuthStateChanged((user) => {
-    //     if (user) {
-    //       radio.addEventListener('change', () => {
-    //         if ()
-    //       })
-    //     }
-    //   })
-    // }
-
-    function myFunction() {
-      firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-          var popup = document.getElementById("myPopup");
-          //added variable for the right radio button
-          var rightanswer = document.querySelector("#CorrectChoice")
-
-          //if the right radio button is checked when click event occurs, right answer pop-up shows
-          if (rightanswer.checked == true) {
-            console.log('yep')
-            document.getElementById("next_button").style.display = "";
-            popup.classList.toggle("show");
-            currentUser.update({
-              // increment the quiz_total in the firebase by 1 if user gets the right answer
-              quizTotal: firebase.firestore.FieldValue.increment(1)
-            })
-          }
-          else if (rightanswer.checked != true) {
-            window.location.href="/gameplay.html";
-          }
-          //go to the correct user document by referencing to the user uid
-          currentUser = db.collection("users").doc(user.uid);
-        } else {
-          // No user is signed in.
-        }
-      });
-    }
+    // this is the remnants of the non-random quiz, kept in case of any reversions
 
     // function insertName() {
     //   firebase.auth().onAuthStateChanged(user => {
@@ -174,7 +124,9 @@
                 var fourth = doc.data().option_three;
                 var fifth = doc.data().option_four;
                 var sixth = doc.data().answer;
-
+                if (second == sixth || third == sixth || fourth == sixth || fifth == sixth) {
+                  console.log('wow does that work?')
+                }
                 // var questionString = "<p> " + question + "</p>";
                 // $("#question-goes-here").append(questionString);
                 // $("#first-goes-here").append(first);
@@ -192,6 +144,97 @@
       });
     }
     getRandomQuestion();
+
+    // When the user clicks on div, open the popup
+    // see if a button is clicked and then see if that fieldvalue is equal to answer??
+    function myFunction() {
+      firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("users").doc(user.uid);
+
+          var popup = document.getElementById("myPopup");
+          //added variable for the right radio button
+          var rightanswer = document.querySelector("#choice_four")
+          var rightanswer1 = document.querySelector('#choice_one')
+          var rightanswer2 = document.querySelector('#choice_two')
+          var rightanswer3 = document.querySelector('#choice_three')
+          db.collection("Quiz_Questions")
+            .where("position", ">", Math.floor(Math.random() * myArray.length))
+            .limit(1)
+            .onSnapshot(docs => {
+              docs.forEach(doc => {
+                var first = doc.data().question;
+                var second = doc.data().option_one;
+                var third = doc.data().option_two;
+                var fourth = doc.data().option_three;
+                var fifth = doc.data().option_four;
+                var sixth = doc.data().answer;
+
+                //if the right radio button is checked when click event occurs, right answer pop-up shows
+                if (rightanswer.checked == true) {
+                  if (fifth == sixth) {
+                    document.getElementById("next_button").style.display = "";
+                    popup.classList.toggle("show");
+                    currentUser.update({
+                      // increment the quiz_total in the firebase by 1 if user gets the right answer
+                      quizTotal: firebase.firestore.FieldValue.increment(1),
+                    })
+                  } 
+                  else if (fifth != sixth){
+                    window.location.href = "/gameplay.html";
+                  }
+                }
+
+                else if (rightanswer1.checked == true) {
+                  if (second == sixth) {
+                    document.getElementById("next_button").style.display = "";
+                    popup.classList.toggle("show");
+                    currentUser.update({
+                      // increment the quiz_total in the firebase by 1 if user gets the right answer
+                      quizTotal: firebase.firestore.FieldValue.increment(1),
+                    })
+                  } 
+                  else if (second != sixth) {
+                    window.location.href = "/gameplay.html";
+                  }
+                }
+
+                else if (rightanswer2.checked == true) {
+                  if (third == sixth) {
+                    document.getElementById("next_button").style.display = "";
+                    popup.classList.toggle("show");
+                    currentUser.update({
+                      // increment the quiz_total in the firebase by 1 if user gets the right answer
+                      quizTotal: firebase.firestore.FieldValue.increment(1),
+                    })
+                  } 
+                  else if (third != sixth){
+                    window.location.href = "/gameplay.html";
+                  }
+                }
+
+                else if (rightanswer3.checked == true) {
+                  if (fourth == sixth) {
+                    document.getElementById("next_button").style.display = "";
+                    popup.classList.toggle("show");
+                    currentUser.update({
+                      // increment the quiz_total in the firebase by 1 if user gets the right answer
+                      quizTotal: firebase.firestore.FieldValue.increment(1),
+                    })
+                  } 
+                  else if (fourth != sixth) {
+                    window.location.href = "/gameplay.html";
+                  }
+                }
+                
+              })
+            });
+        }
+      });
+    };
   </script>
 
 </body>
