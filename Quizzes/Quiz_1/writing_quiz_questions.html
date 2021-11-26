@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+    function writeQuizQuestions() {
+      var quiz = db.collection("Quiz_Questions");
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "Is a primary source preferable over a secondary source?",
+        option_one: "Not necessarily. You should make a case-by-case determination",
+        option_two: "Yes. he answer is in the name. Primary: first, Secondary: second.",
+        option_three: "Yes. The primary source’s first-hand knowledge of an event will always be more trustworthy than a secondary source’s knowledge.",
+        option_four: "No. A secondary source doesn’t have the same bias that a primary source will.",
+        answer: "Not necessarily. You should make a case-by-case determination",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "A primary source will always be more trustworthy than a secondary source because:",
+        option_one: "Well, they aren’t necessarily - you need to evaluate a source on a case-by-case basis.",
+        option_two: "Well, they won’t be - everyone knows eyewitnesses are unreliable.",
+        option_three: "The answer is literally in the name; primary is best, secondary is not-best.",
+        option_four: "Primary sources can be trusted to have expert knowledge on a topic.",
+        answer: "Well, they aren’t necessarily - you need to evaluate a source on a case-by-case basis."
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "Documentary evidence is:",
+        option_one: "Generally narrated by David Attenborough.",
+        option_two: "Not a relevant concept in terms of news and misinformation.",
+        option_three: "Hard, objective evidence such as tax returns and legal contracts",
+        option_four: "Recorded statements by primary sources.",
+        answer: "Hard, objective evidence such as tax returns and legal contracts"
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "If I am reading an article and I see that the publication has made a correction to the original story, this generally means:",
+        option_one: "That they may be more reputable, as reputable journalists strive to highlight and correct inaccuracies they may have included in their original story",
+        option_two: "That they should be avoided at all costs, as they have failed to get the story right the first time.",
+        option_three: "It doesn’t really have any bearing at all on the publication whatsoever.",
+        option_four: "The Provincial (or Federal, as the case may be) regulator of Journalist Integrity has reviewed the original article and decreed that a revision be made.",
+        answer: "That they may be more reputable, as reputable journalists strive to highlight and correct inaccuracies they may have included in their original story"
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "Thinktanks are just as reputable and trustworthy now as they ever were, right?",
+        option_one: "What? Absolutely not. Those things have always been politically biased.",
+        option_two: "Yes. Thanks to their status as charities, they remain heavily regulated and must remain free from bias lest they lose their tax exemption status.",
+        option_three: "Unfortunately, no. Not to say one shouldn’t review their publications, but do so knowing that Thinktanks have become more politicized in recent years.",
+        option_four: "This is a trick question. Thinktanks were abolished under the 1998 Van Dusen Political Corruption Act.",
+        answer: "Unfortunately, no. Not to say one shouldn’t review their publications, but do so knowing that Thinktanks have become more politicized in recent years.",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "Pick the least-worst option for online fact-checking tools:",
+        option_one: "Facebook or Twitter.",
+        option_two: "Google News and/or Bing.",
+        option_three: "Politifact or Snopes.",
+        option_four: "The Toronto Review’s weekly fact-checking publication.",
+        answer: "Politifact or Snopes.",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "If I see an expert quoted or making a guest appearance on a network news show I can:",
+        option_one: "Rest assured that they have been properly vetted by the network and are a reputable source of information",
+        option_two: "Rest assured that, regardless of anything else, they have been confirmed to be an expert in the field or subject that they are discussing",
+        option_three: "Be sure that I still need to be vigilant and appropriately sceptical of the information they are providing, as there is no guarantee they have been properly vetted as a subject matter expert",
+        option_four: "Rest assured that they are likely a stooge, and may not even have the credentials that they claim to possess.",
+        answer: "Be sure that I still need to be vigilant and appropriately sceptical of the information they are providing, as there is no guarantee they have been properly vetted as a subject matter expert",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "realclearpolitics.com is an example of:",
+        option_one: "A source of rampant disinformation",
+        option_two: "An automatically generated RSS website that uses an algorithm to avoid political bias",
+        option_three: "A human-curated news aggregator that attempts to provide a broad offering of news",
+        option_four: "A satire news website that is easily, and often, mistaken as a legitimate source of news.",
+        answer: "A human-curated news aggregator that attempts to provide a broad offering of news",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "if a source is okay with being directly and named in an article or story, this generally means they are speaking:",
+        option_one: "On the record",
+        option_two: "Off the record",
+        option_three: "On background",
+        option_four: "On wax",
+        answer: "On the record",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "if a source is okay with being quoted, but not identified in the article or story, this generally means they are speaking:",
+        option_one: "On the record",
+        option_two: "Off the record",
+        option_three: "On background",
+        option_four: "On wax",
+        answer: "Off the record",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "if a source is okay with providing information, but not with being cited, named, or even quoted directly, this would generally mean they are:",
+        option_one: "On the record",
+        option_two: "Off the record",
+        option_three: "On background",
+        option_four: "On wax",
+        answer: "On background",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "What is the most correct definition of misinformation?",
+        option_one: "False information that is purposefully and often covertly spread with the intent of influencing public opinion",
+        option_two: "The majority of the information you’ll find from the mainstream media.",
+        option_three: "I think you mean 'disinformation'.",
+        option_four: "Incorrect or misleading information.",
+        answer: "False information that is purposefully and often covertly spread with the intent of influencing public opinion",
+      });
+      quiz.add({
+        position: Math.floor(Math.random() * 24),
+        question: "What is the most correct definition of disinformation?",
+        option_one: "Incorrect and/or misleading information",
+        option_two: "I think you mean 'misinformation'.",
+        option_three: "False information that is purposefully and often covertly spread with the intent of influencing public opinion",
+        option_four: "The academic term for songs intended to insult a rival.",
+        answer: "False information that is purposefully and often covertly spread with the intent of influencing public opinion",
+      });
+      // quiz.add({
+      //   position: Math.floor(Math.random() * 24),
+      //   question: "",
+      //   option_one: "",
+      //   option_two: "",
+      //   option_three: "",
+      //   option_four: "",
+      //   answer: "",
+      // });
+      // quiz.add({
+      //   position: Math.floor(Math.random() * 24),
+      //   question: "",
+      //   option_one: "",
+      //   option_two: "",
+      //   option_three: "",
+      //   option_four: "",
+      //   answer: "",
+      // });
+    }
+    // writeQuizQuestions();
+  </script>
+
+  </html>
