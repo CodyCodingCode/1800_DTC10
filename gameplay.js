@@ -10,7 +10,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var currentUser;
 
 // define variables associated with each button in the game
-// these are global scope (I think)
+
 //Main Clicker
 let mainbutton = document.querySelector("#mainbutton");
 let managerButton = document.querySelector('#hireManager');
@@ -28,12 +28,6 @@ let altnews = document.querySelector("#altnews")
 let podcasts = document.querySelector("#podcasts")
 let adverts = document.querySelector("#advertisements")
 
-//Click incrementer
-
-
-//let pausebutt = document.querySelector("#pause");
-//let playbutton = document.querySelector("#play");
-
 //-----------------------------------------------//
 //-- The following checks Firebase for data and--//
 //-- Adds it to the user's data if missing     --//
@@ -45,28 +39,6 @@ let adverts = document.querySelector("#advertisements")
 let managers;
 let managerIncrement = 5000;
 
-//does this need to go into a function? Can be included in point/quiz score above^^
-// firebase.auth().onAuthStateChanged(user => {
-//   if (user) {
-//     currentUser = db.collection("users").doc(user.uid);
-
-//     currentUser.get()
-//       .then(userDoc => {
-
-//         var manager = userDoc.data().moneyManager;
-
-//         if (manager == null) {
-//           currentUser.update({
-//             manager: 0,
-//           });
-//         } else {
-//           console.log("Manager Total present in database");
-//         }
-//       });
-//   }
-// });
-
-//This works, but currently will always run, constantly
 //Should do two things - increase increment above 1000ms, and build mechanism to purchase
 //'campaign managers' so that it starts as 'off' and is a late-game feature.
 
@@ -109,10 +81,10 @@ function displayScores() {
           var currentQuiz = userDoc.data().quizTotal;
           var currentMgmt = userDoc.data().manager;
           var increment = userDoc.data().incrementScore;
+
           //this should display the numbers
           score_tally.innerHTML = currentScore;
           quiz_tally.innerHTML = currentQuiz;
-
           
           //make our button clickable
           mainbutton.onclick = () => addPoints(currentUser, increment);
@@ -124,16 +96,9 @@ function displayScores() {
           altnews.onclick = () => upgradePurchase(currentUser, -915, redirecttoquiz(), false);
           podcasts.onclick = () => upgradePurchase(currentUser, -1115, redirecttoquiz(), false);
           adverts.onclick = () => upgradePurchase(currentUser, -1315, redirecttoquiz(), false);
+          
           //Set low for testing purposes
           managerButton.onclick = () => upgradePurchase(currentUser, -100, null, true);
-
-
-          
-
-
-
-
-
         })
     }
   }) 
@@ -300,18 +265,6 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
-
-//copy for safekeeping - original listener for points
-// db.collection('users').onSnapshot(snapshot => {
-//   let changes = snapshot.docChanges();
-//   changes.forEach(change => {
-//     console.log(change.doc.data());
-//     score_tally.innerHTML = change.doc.get('score');
-//     quiz_tally.innerHTML = change.doc.get('quizTotal')
-//   })
-// })
-
-
 //--------------------------------------------------------------------
 //--------------------------------------------------------------------
 //----------------------Non-Game Related JS---------------------------
@@ -380,7 +333,7 @@ window.onclick = function(event) {
   }
 }
 
-//help pop-up
+//about website pop-up
 var aboutModal = document.querySelector("#aboutModal");
 var aboutButton = document.querySelector("#aboutTheGame");
 var aboutSpan = document.querySelector("#aboutClose");
@@ -398,25 +351,3 @@ window.onclick = function(event) {
     aboutModal.style.display = "none";
   }
 }
-
-
-
-//-------------------------------------------
-//about-us pop-up
-// var aboutModal = document.querySelector("#aboutModal");
-// var aboutButton = document.querySelector("#aboutTheGame");
-// var aboutSpan = document.querySelector("#closeAbout");
-
-// aboutButton.onclick = function() {
-//   aboutModal.style.display = "block";
-// }
-
-// aboutSpan.onclick = function() {
-//   aboutModal.style.display = "none";
-// }
-
-// window.onclick = function(event) {
-//   if (event.target == aboutModal) {
-//     aboutModal.style.display = "none";
-//   }
-// }
