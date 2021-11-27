@@ -22,95 +22,15 @@ span {
   }
 
 
-/* div {
-  text-align: center;
-}
-
-#container {
-  margin-left: 15%;
+table {
+  margin: 5%;
+  padding: 15%;
   width: 75%;
-  height: 50vh;
-  display: grid;
-  grid-template-columns: 10% 30% 30% 30%;
-  grid-template-rows: 12.5% 12.5% 25% 25% 25%;
-  border: solid;
+  border: 5% solid black;
+  text-align: center;
+
 }
 
-#title {
-  grid-column: 2 / span 3;
+#pname, #pscore, #pmanager {
+  text-align: left;
 }
-
-#name {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-
-#score {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-}
-
-#managers {
-  grid-column: 4 / 5;
-  grid-row: 2 / 3;
-}
-
-#first {
-  grid-column: 1 / 2;
-  grid-row: 3 / 4;
-}
-
-#second {
-  grid-column: 1 / 2;
-  grid-row: 4 / 5;
-}
-
-#third {
-  grid-column: 1 / 2;
-  grid-row: 5 / 6;
-}
-
-#firstPlaceName {
-  grid-column: 2 / 3;
-  grid-row: 3 / 4;
-}
-
-#secondPlaceName {
-  grid-column: 2 / 3;
-  grid-row: 4 / 5;
-}
-
-#thirdPlaceName {
-  grid-column: 2 / 3;
-  grid-row: 5 / 6;
-}
-
-#firstPlaceScore {
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
-}
-
-#secondPlaceScore {
-  grid-column: 3 / 4;
-  grid-row: 4 / 5;
-}
-
-#thirdPlaceScore {
-  grid-column: 3 / 4;
-  grid-row: 5 / 6;
-}
-
-#firstPlaceManagers {
-  grid-column: 4 / 5;
-  grid-row: 3 / 4;
-}
-
-#secondPlaceManagers {
-  grid-column: 4 / 5;
-  grid-row: 4 / 5;
-}
-
-#thirdPlaceManagers {
-  grid-column: 4 / 5;
-  grid-row: 5 / 6;
-} */
