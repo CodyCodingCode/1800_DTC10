@@ -16,13 +16,20 @@
   <script src="/scripts/firebaseAPI_DTC10.js"></script>
 
   <!-- Bootstrap FirebaseUI CSS -->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+        body {
+      background-color: #f2f0e5;
+    }
+
+  </style>
 </head>
 
 <body>
 
-  <div class="container mt-sm-5 my-1">
+  <div class="container mt-sm-5 my-1" id="quizbox">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
       <div class="py-2 h5"><b>Question 1: </b><span id="first-goes-here"></span></div>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
@@ -51,7 +58,7 @@
     </div>
     <div class="d-flex align-items-center pt-3">
 
-      <div id="prev"> <button class="btn btn-primary" onclick="confirmation_box()">Home</button></div>
+      <div id="prev"> <button class="btn btn-primary" onclick="confirmation_box()">Back</button></div>
 
       <div class="ml-auto mr-sm-5" id="buttonsubmit"> <button class="btn btn-success" id="thisisthesubmitbutton"
           onclick="myFunction()">Submit</button> </div>

@@ -10,6 +10,10 @@ body {
   background-color: #f2f0e5;
 }
 
+#quizbox{
+  background-color: #60556e;
+}
+
 #buttonsubmit{
   padding-left: 12px;
 }
