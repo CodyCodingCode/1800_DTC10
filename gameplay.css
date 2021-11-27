@@ -178,3 +178,7 @@ body{
   text-decoration: none;
   cursor:pointer;
 }
+
+.butt:disabled {
+  background-color: #999;
+}
