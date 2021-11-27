@@ -23,11 +23,44 @@
         body {
       background-color: #f2f0e5;
     }
-
+    #navbar1{
+      padding-left: 10px;
+    }
+    #footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
   </style>
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light text-light text-md-center" style="background-color: #c7786f">
+    <div class="container-fluid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-workspace"
+        viewBox="0 0 16 16">
+        <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+        <path
+          d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+      </svg>
+
+      <a class="navbar-brand" id="navbar1">News Tycoon</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
 
   <div class="container mt-sm-5 my-1" id="quizbox">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
@@ -72,7 +105,10 @@
     </div>
 
   </div>
-
+  <div id="footer" class="text-center py-3" style="background-color: #c7786f" ;>
+    © 2021 Copyright:
+    <a class="text-dark">DTC10</a>
+  </div>
   <script>
     // When the user clicks home/back, confirm that they actually want to leave.
     function confirmation_box() {

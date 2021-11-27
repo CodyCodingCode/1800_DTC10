@@ -19,14 +19,21 @@
   <!--Firebase Authentication API Keys -->
   <script src="/scripts/firebaseAPI_DTC10.js"></script>
 
-<style>
-      body {
+  <style>
+    body {
       background-color: #f2f0e5;
     }
+
     #navbar1 {
       padding-left: 10px;
     }
-</style>
+
+    #footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 
 <body>
@@ -114,7 +121,7 @@
     <div class="score_display" id="manager"></div>
     <div class="score_display" id="score"></div>
     <div class="score_display" id="quiz"></div>
-    <button class="butt" id="mainbutton">Click me!</button>
+    <button id="mainbutton" image src="images\Glossary-Icon.png"></button>
     <button class="butt" id="localnews" disabled>Local News</button>
     <button class="butt" id="socialbots" disabled>Social Bots</button>
     <button class="butt" id="cablenews" disabled>Cable News</button>
@@ -131,8 +138,6 @@
     <button class="butt" id="hireManager" disabled>Campaign Manager</button>
 
   </div>
-  <div id="cr">DTC-10 - Copyright 2021</div>
-
   <div id="helpModal" class="modal">
 
     <!-- Modal content -->
@@ -175,6 +180,10 @@
         From the DTC-10 (Cody, Joey, and Wilson) - Thanks for playing!
       </p>
     </div>
+  </div>
+  <div id="footer" class="text-center py-3" style="background-color: #c7786f" ;>
+    © 2021 Copyright:
+    <a class="text-dark">DTC10</a>
   </div>
 
   <script src="gameplay.js">
