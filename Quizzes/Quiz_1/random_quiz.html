@@ -95,7 +95,7 @@
 
       <div class="ml-auto mr-sm-5" id="buttonsubmit"> <button class="btn btn-success" id="thisisthesubmitbutton"
           onclick="myFunction()">Submit</button> </div>
-      <div class="popup" onclick="myFunction()">
+      <div class="popup">
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
       <a href="random_quiz.html">
@@ -152,7 +152,12 @@
     // }
     // insertName();
     var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-
+    var first = "";
+    var second = "";
+    var third = "";
+    var fourth = "";
+    var fifth = "";
+    var sixth = "";
     function getRandomQuestion() {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -161,12 +166,13 @@
             .limit(1)
             .onSnapshot(docs => {
               docs.forEach(doc => {
-                var first = doc.data().question;
-                var second = doc.data().option_one;
-                var third = doc.data().option_two;
-                var fourth = doc.data().option_three;
-                var fifth = doc.data().option_four;
-                var sixth = doc.data().answer;
+                first = doc.data().question;
+                second = doc.data().option_one;
+                third = doc.data().option_two;
+                console.log(sixth)
+                fourth = doc.data().option_three;
+                fifth = doc.data().option_four;
+                sixth = doc.data().answer;
                 if (second == sixth || third == sixth || fourth == sixth || fifth == sixth) {
                   console.log('wow does that work?')
                 }
@@ -209,13 +215,13 @@
             .limit(1)
             .onSnapshot(docs => {
               docs.forEach(doc => {
-                var first = doc.data().question;
-                var second = doc.data().option_one;
-                var third = doc.data().option_two;
-                var fourth = doc.data().option_three;
-                var fifth = doc.data().option_four;
-                var sixth = doc.data().answer;
-
+                // var first = doc.data().question;
+                // var second = doc.data().option_one;
+                // var third = doc.data().option_two;
+                // var fourth = doc.data().option_three;
+                // var fifth = doc.data().option_four;
+                // var sixth = doc.data().answer;
+                console.log(sixth)
                 //if the right radio button is checked when click event occurs, right answer pop-up shows
                 if (rightanswer.checked == true) {
                   if (fifth == sixth) {
