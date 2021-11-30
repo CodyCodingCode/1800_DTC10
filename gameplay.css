@@ -101,25 +101,6 @@ footer {
   width: 100%;
 }
 
-
-
-/* #game{
-  width: 80%;
-  height: 75vh;
-  border: none;
-  outline: none;
-  box-shadow: 5px 10px 8px 10px #212123;
-  background-color: #b8b5b9;
-  margin-left: 10%;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 18% 12% 16% 16% 16% 16% 5%;
-  font-family: 'IBM Plex Mono', monospace; 
-  margin-top: 40px;
-} */
-
-
-
 #score{
   width: 100%;
   height: 100%;
@@ -199,8 +180,8 @@ footer {
   /* display: block; */
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  height: 150%;
+  width: 200px;
+  height: 100px;
 }
 
 /*Help and Manager Button Classes*/
@@ -269,15 +250,4 @@ footer {
 
 .butt:disabled {
   background-color: #999;
-}
-
-@media only screen and (min-width: 375px) and (max-width: 812px) {
-  #game{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-
 }
