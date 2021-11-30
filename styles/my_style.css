@@ -10,6 +10,16 @@ body {
   background-color: #f2f0e5;
 }
 
+#navbar1 {
+  padding-left: 10px;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 #quizbox{
   background-color: #3b405e;
 }
