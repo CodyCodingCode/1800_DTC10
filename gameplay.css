@@ -10,13 +10,13 @@ body{
 }
 
 #game{
-  width: 40%;
+  width: 80%;
   height: 75vh;
   border: none;
   outline: none;
   box-shadow: 5px 10px 8px 10px #212123;
   background-color: #b8b5b9;
-  margin-left: 30%;
+  margin-left: 10%;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 18% 12% 16% 16% 16% 16% 5%;
