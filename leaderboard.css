@@ -17,18 +17,21 @@ span {
 
 }
 
-#ranks{
+/* #ranks{
 
     background: #ff9999;
     padding: 20px;
-  }
+  } */
 
   #leaderboard{
     margin-left: 10px;
+    text-align: center;
   }
 
 
 table {
+  border-spacing: 0px;
+  border-collapse: separate;
   margin: 5%;
   padding: 15%;
   width: 75%;
