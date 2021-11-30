@@ -271,13 +271,3 @@ footer {
   background-color: #999;
 }
 
-@media only screen and (min-width: 375px) and (max-width: 812px) {
-  #game{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-
-}
