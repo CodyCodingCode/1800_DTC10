@@ -49,44 +49,45 @@
 
     </div>
   </nav>
-
+  <!-- This is the container for the quiz  -->
   <div class="container mt-sm-5 my-1" id="quizbox">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
+      <!-- Question gets read from fire base and displayed here -->
       <div class="py-2 h5"><b>Question 1: </b><span id="first-goes-here"></span></div>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
         <br><br>
+        <!-- A collection of 4 radio buttons are displayed with each quiz -->
         <label class="options">
           <input type="radio" name="radio" id="choice_one"> <span class="checkmark" id="first_choice"></span>
+          <!-- Each radio button will have a choice attached to it -->
           <div class="py-2 h5"><b></b><span id="second-goes-here"></span></div>
         </label>
-        <!-- <div class="py-2 h5"><b></b><span id="second-goes-here"></span></div> -->
         <label class="options">
           <input type="radio" name="radio" id="choice_two"> <span class="checkmark" id="second_choice"></span>
           <div class="py-2 h5"><b></b><span id="third-goes-here"></span></div>
         </label>
-        <!-- <div class="py-2 h5"><b></b><span id="third-goes-here"></span></div> -->
         <label class="options">
           <input type="radio" name="radio" id="choice_three"> <span class="checkmark" id="third_choice"></span>
           <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div>
         </label>
-        <!-- <div class="py-2 h5"><b></b><span id="fourth-goes-here"></span></div> -->
         <label class="options">
           <input type="radio" name="radio" id="choice_four"> <span class="checkmark" id="fourth_choice"></span>
           <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div>
         </label>
-        <!-- <div class="py-2 h5"><b></b><span id="fifth-goes-here"></span></div> -->
       </div>
     </div>
     <div class="d-flex align-items-center pt-3">
-
+      <!-- this is the back button -->
       <div id="prev"> <button class="btn btn-secondary" onclick="confirmation_box()">Back</button></div>
-
+      <!-- this is the submit button -->
       <div class="ml-auto mr-sm-5" id="buttonsubmit"> <button class="btn btn-primary" id="thisisthesubmitbutton"
           onclick="myFunction()">Submit</button> </div>
+      <!-- this is the popup button that shows up when questions are answered correctly -->
       <div class="popup">
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
       <a href="/Quizzes/Quiz_1/final_quiz.html">
+      <!-- When questions are answered correctly, a next/continue button will be displayed -->
         <div class="ml-auto mr-sm-5" id="buttonnext"> <button class="btn btn-success" id="next_button"
             style="display:none;">Next</button> </div>
       </a>
@@ -105,8 +106,10 @@
         window.location.href = "/gameplay.html"
       }
     }
-
+    
+    // declare an array, and have one randomly picked index get compared with a randomly generated number
     var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    // declare a series of global variables
     var first = "";
     var second = "";
     var third = "";
@@ -114,6 +117,7 @@
     var fifth = "";
     var sixth = "";
 
+    // this function will randomly grab a quiz from firebase
     function getRandomQuestion() {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -146,8 +150,7 @@
     }
     getRandomQuestion();
 
-    // When the user clicks on div, open the popup
-    // see if a button is clicked and then see if that fieldvalue is equal to answer??
+    // this function will check to see if the user selected the correct answer upon submission
     function myFunction() {
       firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -163,6 +166,7 @@
           var rightanswer2 = document.querySelector('#choice_two')
           var rightanswer3 = document.querySelector('#choice_three')
           
+          // if the correct answer is picked, show the popup. If not kick them out of the quiz
           if (rightanswer.checked == true) {
             if (fifth == sixth) {
               document.getElementById("next_button").style.display = "";
