@@ -34,3 +34,12 @@ function leaderboard(){
 
 //call our function on page load
 leaderboard();
+
+function mynavbar() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
