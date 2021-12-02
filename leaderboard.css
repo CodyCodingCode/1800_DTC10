@@ -90,7 +90,9 @@ table {
 
 .topnav a {
   float: left;
-  display: block;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 40%;
+  grid-template-rows: 50% 50%;
   color: black;
   text-align: center;
   padding: 14px 16px;
