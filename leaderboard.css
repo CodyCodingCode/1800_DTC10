@@ -46,43 +46,6 @@ table {
 
 /* below this is css for the navbar */
 
-
-/* .topnav {
-  overflow: hidden;
-  background-color: #c7786f;
-  position: relative;
-}
-
-.topnav #myLinks {
-  display: none;
-}
-
-.topnav a {
-  color: black;
-  padding: 14px 22px;
-  text-decoration: none;
-  font-size: 22px;
-  display: block;
-}
-
-.topnav a.icon {
-  background:#c7786f;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.active {
-  background-color: #c7786f;
-  color: white;
-} */
-
 .topnav {
   overflow: hidden;
   background-color: #c7786f;

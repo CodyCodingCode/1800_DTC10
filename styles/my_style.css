@@ -20,16 +20,16 @@ body {
   width: 100%;
 }
 
-#quizbox{
+#quizbox {
   background-color: #3b405e;
 }
 
-#buttonsubmit{
-  padding-left: 12px;
+#buttonsubmit {
+  padding-left: 2vw;
 }
 
-#buttonnext{
-  padding-left: 1000px;
+#buttonnext {
+  padding-left: 50vw;
 }
 
 .container {
@@ -152,6 +152,12 @@ body {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
+}
+
+@media(max-width:1000px) {
+  #buttonnext {
+    padding-left: 38vw;
+  }
 }
 
 @media(max-width:576px) {

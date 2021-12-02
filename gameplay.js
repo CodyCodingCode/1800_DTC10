@@ -351,7 +351,7 @@ window.onclick = function(event) {
   }
 }
 
-
+// this function creates a dropdown hamburger event for our navbar
 function mynavbar() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
