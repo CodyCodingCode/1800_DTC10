@@ -6,12 +6,12 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 //-----------------------------------------------//
 //-- The following is the Account Profile form --//
 //-----------------------------------------------//
-//insert score and quizvalue for user
+//Initialize currentUser var
 var currentUser;
 
 // define variables associated with each button in the game
 
-//Main Clicker
+//Main Clicker and Manager button
 let mainbutton = document.querySelector("#mainbutton");
 let managerButton = document.querySelector('#hireManager');
 //Score Display
@@ -28,20 +28,17 @@ let altnews = document.querySelector("#altnews")
 let podcasts = document.querySelector("#podcasts")
 let adverts = document.querySelector("#advertisements")
 
-//-----------------------------------------------//
-//-- The following checks Firebase for data and--//
-//-- Adds it to the user's data if missing     --//
-//-----------------------------------------------//
+//-----------------------------------------------------//
+//-- The following creates a money manager feature-----//
+//-- that the player can use to increase score faster--//
+//----------------------------------------------------//
 
-//====================================================================================
-//====================================================================================
-//Potentially making a money manager?
 let managers;
-let managerIncrement = 5000;
+let managerIncrement = 1000;
 
-//Should do two things - increase increment above 1000ms, and build mechanism to purchase
-//'campaign managers' so that it starts as 'off' and is a late-game feature.
-
+// managerIncremenet set to 1000ms for demo purposes. True gameplay should set this higher (5000+) and implement mechanism to decrease managerIncrement for faster score accrual.
+// This will not do anything until a player purchases a money manager. Once the number of managers is above zero, 
+// the function will run once per managerIncrement, and increase the user's score based on how many managers they hire.
 setInterval(function () {
    firebase.auth().onAuthStateChanged(user => {
      if (user) {
@@ -63,8 +60,10 @@ setInterval(function () {
  }, managerIncrement);
 
 
-//====================================================================================
-//====================================================================================
+//---------------------------------------------------------//
+//-- The following function displays the user's scores-----//
+//-- as stored in the firestore database------------------//
+//-------------------------------------------------------//
 
 //display the scores
 function displayScores() {
@@ -86,7 +85,7 @@ function displayScores() {
           score_tally.innerHTML = currentScore;
           quiz_tally.innerHTML = currentQuiz;
           
-          //make our button clickable
+          //make our button clickable - on a click event, the cost of the quiz is removed from the user's score (reflected immediately in firebase)
           mainbutton.onclick = () => addPoints(currentUser, increment);
           localNews.onclick = () => upgradePurchase(currentUser, -15, redirecttoquiz(), false);
           socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoquiz2(), false);
@@ -110,7 +109,7 @@ displayScores();
 
 //====================================================================================
 //====================================================================================
-//increment our main score
+//increment our main score on each click of the main gameplay button
 function addPoints(currentUser, increment) {
   console.log("inside");
   //update the value stored in the score field associated with the user
@@ -121,27 +120,27 @@ function addPoints(currentUser, increment) {
 
 //====================================================================================
 //====================================================================================
-//Reduce our main score
+//Reduce our main score by the cost of the quiz or manager
 function upgradePurchase(currentUser, amount, functionName, manager) {
-  //update the value stored in the score field associated with the user
+  //update the value stored in the score field associated with the user (parameter 'amount' will be a negative integer in this function)
   currentUser.update({
     score: firebase.firestore.FieldValue.increment(amount),
   });
-
+  //If the manager value is true, meaning a manager has been 'hired' by the user, then the manager value is increased
   console.log('test button');
   if (manager == true) {
     console.log('test manager');
     currentUser.update({
       manager: firebase.firestore.FieldValue.increment(1),
     });
-
+    //This will link the player to whichever quiz they intended to do
   functionName;
   }
 }
 
 //====================================================================================
 //====================================================================================
-//define functions to use in our listener
+//define functions to use in our listener - this will activate or deactive quiz buttons based on the user's points
 function activateButton(button) {
   button.disabled = false;
 };
@@ -152,7 +151,7 @@ function deactivateButton(button) {
 
 //====================================================================================
 //====================================================================================
-// Control the buttons in our game
+// Control the buttons in our game - each integer in the if-elif conditionals below reflects the cost of the applicable quiz
 function buttonController(score) {
   //---- Local News Updgrade
   if (score >= 15) {
@@ -256,11 +255,11 @@ firebase.auth().onAuthStateChanged((user) => {
         manager.innerHTML = doc.get('manager');
         console.log("current data ", doc.data());
 
-        // We're adding functionality to this listener.
-        // If the score hits a threshold, we will unlock buttons
+
+        // If the score hits a threshold, the listener will also unlock buttons for the user
         buttonController(doc.get('score'));
 
-        // A quiz score tracker will sync with a increment increase function
+
         });
   }
 });

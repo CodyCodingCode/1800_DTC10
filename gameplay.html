@@ -4,39 +4,32 @@
 <head>
   <meta charset="UTF-8" />
   <title>Incremental Game</title>
+
+  <!--Link Custom CSS style sheet and Bootstrap CSS/JS-->
   <link rel="stylesheet" href="gameplay.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
+
   <!-- Firebase 8 CDNs-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
   <!--Firebase Authentication API Keys -->
   <script src="/scripts/firebaseAPI_DTC10.js"></script>
-
-  <style>
-    body {
-      background-color: #f2f0e5;
-    }
-
-    #navbar1 {
-      padding-left: 10px;
-    }
-
-    #footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
 </head>
 
 <body>
+  <!--==========================================================================================================-->
+  <!--==================                       BOOTSTRAP NAVBAR                          =======================-->
+  <!--==========================================================================================================-->
+
+  <!--6 HTML Errors detected all relate to Bootstrap Nav Container-->
   <nav class="navbar navbar-expand-lg navbar-light text-light text-md-center" style="background-color: #c7786f">
     <div class="container-fluid">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-workspace"
@@ -101,7 +94,7 @@
 
           <li class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-power"
-              viewbox="0 0 16 16">
+              viewBox="0 0 16 16">
               <path d="M7.5 1v7h1V1h-1z" />
               <path
                 d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
@@ -117,7 +110,11 @@
   </nav>
   <span></span>
 
+  <!--==========================================================================================================-->
+  <!--==================                       GAME CONTAINER                            =======================-->
+  <!--==========================================================================================================-->
   <div id="game">
+    <!--Create div containers for the score displays, headings, and main gameplay button-->
     <div id="manager_title">Managers</div>
     <div class="score_display" id="manager"></div>
     <div id="score_title">Score</div>
@@ -126,6 +123,8 @@
     <div class="score_display" id="quiz"></div>
     <input type="image" src="images/Glossary-Icon.png" id="mainbutton">
     <div id="quiz_heading">Available Quizzes</div>
+
+    <!--Create buttons for quiz purchases by user-->
     <button class="butt" id="localnews" disabled>Local News</button>
     <button class="butt" id="socialbots" disabled>Social Bots</button>
     <button class="butt" id="cablenews" disabled>Cable News</button>
@@ -134,18 +133,19 @@
     <button class="butt" id="altnews" disabled>Alt News</button>
     <button class="butt" id="podcasts" disabled>Podcasts</button>
     <button class="butt" id="advertisements" disabled>Adverts</button>
+    <button class="butt" id="hireManager" disabled>Campaign Manager</button>
 
     <!--The help, information button for the gameplay-->
     <div id="helpandinfo">Additional Information</div>
     <button class="helpButton" id="aboutTheGame">i</button>
     <button class="helpButton" id="helpMech">?</button>
 
-    <button class="butt" id="hireManager" disabled>Campaign Manager</button>
-
   </div>
+
+  <!--Create Modal containers for help and tutorial-->
   <div id="helpModal" class="modal">
 
-    <!-- Modal content -->
+    <!-- Modal Help Content -->
     <div class="modalContent">
       <span class="helpClose">&times;</span>
       <p>Tutorial</p>
@@ -169,8 +169,8 @@
 
   </div>
 
+  <!-- Modal About Content -->
   <div id="aboutModal" class="modal">
-
     <div class="modalContent">
       <span class="helpClose" id="aboutClose">&times;</span>
       <p>About Page</p>
@@ -186,6 +186,8 @@
       </p>
     </div>
   </div>
+
+  <!--Bootstrap container for footer and group information-->
   <div id="footer" class="text-center py-3" style="background-color: #c7786f" ;>
     © 2021 Copyright:
     <a class="text-dark">DTC10</a>

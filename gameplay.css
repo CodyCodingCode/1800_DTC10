@@ -1,16 +1,33 @@
+/*Import font for gameplay section of page*/
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,200&display=swap');
 
+/*Set page to zero*/
 * {
   padding: 0;
   margin: 0;
 
 }
+
+/*Create main page CSS grid*/
+
 body{
   height: 100vh;
   background-color: #f2f0e5;
   display: grid;
   grid-template-columns: 10% 80% 10%;
   grid-template-rows: 12% 40% 40% 8%;
+}
+
+/*Set appearance, locations for navbar and footer*/
+
+#navbar1 {
+  padding-left: 10px;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 nav {
@@ -23,6 +40,8 @@ footer {
   grid-column: 1 / span 2;
 }
 
+/*Create CSS Sub-Grid for Gameplay*/
+
 #game {
   grid-row: 2 / 4;
   grid-column: 1 / span 3;
@@ -33,6 +52,7 @@ footer {
   grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 }
 
+/*Set locations of game elements within #game sub-grid*/
 #quiz_heading {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -87,7 +107,12 @@ footer {
   grid-row: 10 / 11;
 }
 
-/*-=-------------------------------------------------------*/
+#mainbutton {
+  grid-row: 4 / 8;
+  grid-column: 2 / 3;
+}
+
+/*-=-----------Set appearances for gameplay elements----------------------*/
 #manager_title, #score_title, #quiz_title, #quiz_heading, #helpandinfo {
   text-align: center;
   justify-self: center;
@@ -95,8 +120,6 @@ footer {
 }
 
 #mainbutton {
-  grid-row: 4 / 8;
-  grid-column: 2 / 3;
   height: 100%;
   width: 100%;
 }
@@ -141,8 +164,7 @@ footer {
   justify-self: center;
 }
 
-.butt{
-  /* display: inline-block; */
+.butt, .helpButton{
   cursor: pointer;
   text-decoration: none;
   outline: none;
@@ -158,26 +180,19 @@ footer {
 }
 
 /*click button styles*/
-.butt:hover {background-color: #6a536e;}
+.butt:hover .helpButton:hover{
+  background-color: #6a536e;
+}
 
-.butt:active {
+.butt:active, .helpButton:active {
   background-color: #d3a068;
   box-shadow: 0 5px #4b80ca;
   transform: translateY(4px);
 }
 
-#cr {
 
-  text-align: center;
-  margin-top: 2%;
-}
-
-#switches {
-  margin-left: 35%;
-}
 
 #mainbutton {
-  /* display: block; */
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -200,7 +215,6 @@ footer {
   box-shadow: 0 9px #4b80ca;
 }
 
-
 #helpMech{
   align-self: start;
   justify-self: end;
@@ -212,7 +226,7 @@ footer {
   justify-self: start;
   margin-left: 5%;
 }
-/**/
+/*Help and About Game Pop Ups*/
 .modal {
   display: none; 
   position: fixed;
