@@ -1,0 +1,19 @@
+/*Main.html Style Sheet*/
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+body {
+  background-color: #f2f0e5;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+#navbar1 {
+  padding-left: 10px;
+}
