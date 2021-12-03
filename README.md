@@ -5,18 +5,17 @@
 * [Contents](#content)
 
 ## General Info
-This *browser based web application to ...
-*This is a line to mimic the conflict, adding line chaging again
-* Hi my name is Cody. That's all.
-* Hi my name is Wilson!
-* Hi my name is Shen!
+This browser based web application is called Tech Tycoon
+The function of the game mimics that of a clicker game
+Resources are provided to create quizzes for the game
+The app is linked to the firestore database, and uses it as back-end
 
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
 * Bootstrap 
-* ...
+* Firebase and Firestore
 	
 ## Content
 Content of the project folder:
@@ -24,24 +23,95 @@ Content of the project folder:
 ```
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── 404.html                 # Firebase init file
+├── firebase.json            # Firebase init file
+├── firestore.indexes.json   # Firebase init file
+├── firestore.rules          # Firebase init file
+├── gameplay.html            # Main gameplay page of the app
+├── index.html               # landing HTML file, this is what 
+users see when you come to url
+├── leaderboard.html         # Competative leaderboard to track  user progress
+├── Login.html               # Login page for the user to login
+├── main.html                # Welcome page of the app
+├── profile-page.html        # User info page for the app
 └── README.md
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
+├── .firebase                # Folder for firebase
+├── .vscode                  # Folder for json settings
 ├── images                   # Folder for images
-    /blah.jpg                # 
+    about.png 
+    dice-5.svg
+    donate.png
+    gear.svg
+    Glossary-Icon.png
+    Logout-Icon.png
+    Logout.png
+    newspaper.svg
+    power.svg
+    Settings-Icon.png
+    Settings.png
+    speedometer.svg
+    upgrade.png
+    user_profile.jpg 
+├── Quizzes
+    /Quiz-1
+      Quiz-1-Question-1.html
+      Quiz-1-Question-2.html
+      Quiz-1-Question-3.html
+    /Quiz-2
+      Quiz-2-Question-1.html
+      Quiz-2-Question-2.html
+      Quiz-2-Question-3.html
+    /Quiz-3
+      Quiz-3-Question-1.html
+      Quiz-3-Question-2.html
+      Quiz-3-Question-3.html
+    /Quiz-4
+      Quiz-4-Question-1.html
+      Quiz-4-Question-2.html
+      Quiz-4-Question-3.html
+    /Quiz-5
+      Quiz-5-Question-1.html
+      Quiz-5-Question-2.html
+      Quiz-5-Question-3.html
+    /Quiz-6
+      Quiz-6-Question-1.html
+      Quiz-6-Question-2.html
+      Quiz-6-Question-3.html
+    /Quiz-7
+      Quiz-7-Question-1.html
+      Quiz-7-Question-2.html
+      Quiz-7-Question-3.html
+    /Quiz-8 
+      Quiz-8-Question-1.html
+      Quiz-8-Question-2.html
+      Quiz-8-Question-3.html                
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
+    firebaseAPI_DTC10.js     # Firebase API stuff, shared throughout pages
+    gameplay.js              # JS for gameplay.html
+    index.js                 # JS for index.html
+    leaderboard.js           # JS for leader-board.html
+    main.js                  # JS for main.html
+    quizzes.js               # JS for quizzes.html 
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    gameplay.css             # style for gameplay.html
+    index.css                # style for index.html
+    leader-board.css         # style for leaderboard.html
+    main.css                 # style for main.html
+    my_style.css             # style for quizzes and profile-page.html
 
 Firebase hosting files: 
-├── .firebaserc...
+├── .firebaserc              # Firebase init file
+├── 404.html                 # Firebase init file
+├── firebase.json            # Firebase init file
+├── firestore.indexes.json   # Firebase init file
+├── firestore.rules          # Firebase init file
+└── storage.rules
 
 
 ```
 
-Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
+## Contact 
+* Hoda Rashedi - hrashedi1@my.bcit.ca 
+* ...
