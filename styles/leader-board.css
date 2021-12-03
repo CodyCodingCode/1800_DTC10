@@ -12,7 +12,6 @@ span {
 }
 
 #leaders{
-  background: #ff9999;
   padding: 20px;
 
 }
@@ -23,9 +22,10 @@ span {
 
 body {
   background-color: #f2f0e5;
+  height: 100vh;
 }
 
-  #leaderboard{
+#leaderboard{
     margin-left: 10px;
     text-align: center;
   }
@@ -42,8 +42,21 @@ table {
 
 }
 
+table, tbody, tr, th, td{
+  border-style: inset;
+  border: black;
+}
+
 #pname, #pscore, #pmanager {
   text-align: left;
+}
+
+/*Create Grid and Style Leader Board*/
+#container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 25% 50% 25%;
 }
 
 /* below this is css for the navbar */

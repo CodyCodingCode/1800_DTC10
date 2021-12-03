@@ -35,6 +35,7 @@ function leaderboard(){
 //call our function on page load
 leaderboard();
 
+/*Navbar functionality*/
 function mynavbar() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
