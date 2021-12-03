@@ -5,10 +5,10 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application is called Tech Tycoon
-The function of the game mimics that of a clicker game
-Resources are provided to create quizzes for the game
-The app is linked to the firestore database, and uses it as back-end
+This browser based web application is called News Tycoon. 
+This is a functional clicker-game with database integration, and an educational component. 
+Pre-made resources are provided to create randomized educational quizzes for the game.
+The app is linked to a firestore database, and uses it as back-end.
 
 ## Technologies
 Technologies used for this project:
