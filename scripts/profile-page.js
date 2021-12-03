@@ -78,3 +78,13 @@ function logout() {
     console.log("Unknown Error!")
   });
 }
+
+/*Navbar functionality*/
+function mynavbar() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
