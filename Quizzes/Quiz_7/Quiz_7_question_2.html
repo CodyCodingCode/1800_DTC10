@@ -87,7 +87,7 @@
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
       <a href="/Quizzes/Quiz_7/Quiz_7_question_3.html">
-      <!-- When questions are answered correctly, a next/continue button will be displayed -->
+        <!-- When questions are answered correctly, a next/continue button will be displayed -->
         <div class="ml-auto mr-sm-5" id="buttonnext"> <button class="btn btn-success" id="next_button"
             style="display:none;">Next</button> </div>
       </a>
@@ -99,57 +99,6 @@
     <a class="text-dark">DTC10</a>
   </div>
   <script>
-    // When the user clicks home/back, confirm that they actually want to leave.
-    function confirmation_box() {
-      if (confirm(
-          "You will have to pay another entrance fee to take the quiz again! Are you sure you want to leave?")) {
-        window.location.href = "/gameplay.html"
-      }
-    }
-    
-    // declare an array, and have one randomly picked index get compared with a randomly generated number
-    var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-    // declare a series of global variables
-    var first = "";
-    var second = "";
-    var third = "";
-    var fourth = "";
-    var fifth = "";
-    var sixth = "";
-
-    // this function will randomly grab a quiz from firebase
-    function getRandomQuestion() {
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          db.collection("Quiz_Questions")
-            .where("position", ">", Math.floor(Math.random() * myArray.length))
-            .limit(1)
-            .onSnapshot(docs => {
-              docs.forEach(doc => {
-                first = doc.data().question;
-                second = doc.data().option_one;
-                third = doc.data().option_two;
-                console.log(third)
-                fourth = doc.data().option_three;
-                fifth = doc.data().option_four;
-                sixth = doc.data().answer;
-                if (second == sixth || third == sixth || fourth == sixth || fifth == sixth) {
-                  console.log('wow does that work?')
-                }
-                $("#first-goes-here").text(first);
-                $("#second-goes-here").text(second);
-                $("#third-goes-here").text(third);
-                $("#fourth-goes-here").text(fourth);
-                $("#fifth-goes-here").text(fifth);
-              })
-            })
-        } else {
-          // No user is signed in.
-        }
-      });
-    }
-    getRandomQuestion();
-
     // this function will check to see if the user selected the correct answer upon submission
     function myFunction() {
       firebase.auth().onAuthStateChanged(user => {
@@ -165,53 +114,43 @@
           var rightanswer1 = document.querySelector('#choice_one')
           var rightanswer2 = document.querySelector('#choice_two')
           var rightanswer3 = document.querySelector('#choice_three')
-          
+
           // if the correct answer is picked, show the popup. If not kick them out of the quiz
           if (rightanswer.checked == true) {
             if (fifth == sixth) {
               document.getElementById("next_button").style.display = "";
               popup.classList.toggle("show");
-            } 
-            else if (fifth != sixth) {
+            } else if (fifth != sixth) {
               window.location.href = "/gameplay.html";
             }
-          } 
-
-          else if (rightanswer1.checked == true) {
+          } else if (rightanswer1.checked == true) {
             if (second == sixth) {
               document.getElementById("next_button").style.display = "";
               popup.classList.toggle("show");
-            } 
-            else if (second != sixth) {
+            } else if (second != sixth) {
               window.location.href = "/gameplay.html";
             }
-          } 
-          
-          else if (rightanswer2.checked == true) {
+          } else if (rightanswer2.checked == true) {
             if (third == sixth) {
               document.getElementById("next_button").style.display = "";
               popup.classList.toggle("show");
-            } 
-            else if (third != sixth) {
+            } else if (third != sixth) {
               window.location.href = "/gameplay.html";
             }
-          } 
-          
-          else if (rightanswer3.checked == true) {
+          } else if (rightanswer3.checked == true) {
             if (fourth == sixth) {
               document.getElementById("next_button").style.display = "";
               popup.classList.toggle("show");
-            } 
-            else if (fourth != sixth) {
+            } else if (fourth != sixth) {
               window.location.href = "/gameplay.html";
             }
-          }
-          ;
+          };
         }
       });
     };
   </script>
-
+  <script src="/scripts/quizzes.js">
+  </script>
 </body>
 
 </html>
