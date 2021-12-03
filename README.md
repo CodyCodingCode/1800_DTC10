@@ -28,10 +28,10 @@ Content of the project folder:
 ├── firestore.indexes.json   # Firebase init file
 ├── firestore.rules          # Firebase init file
 ├── gameplay.html            # Main gameplay page of the app
-├── index.html               # landing HTML file, this is what 
+├── storage.rules            # Firebase init file
 users see when you come to url
 ├── leaderboard.html         # Competative leaderboard to track  user progress
-├── Login.html               # Login page for the user to login
+├── index.html               # Login page for the user to login
 ├── main.html                # Welcome page of the app
 ├── profile-page.html        # User info page for the app
 └── README.md
@@ -94,6 +94,7 @@ It has the following subfolders and files:
     leaderboard.js           # JS for leader-board.html
     main.js                  # JS for main.html
     quizzes.js               # JS for quizzes.html 
+    profile-page.js          # JS for profile-page.html
 ├── styles                   # Folder for styles
     gameplay.css             # style for gameplay.html
     index.css                # style for index.html
@@ -113,5 +114,6 @@ Firebase hosting files:
 ```
 
 ## Contact 
-* Hoda Rashedi - hrashedi1@my.bcit.ca 
-* ...
+* Wil Scott - wscott53@my.bcit.ca
+* Cody Zhang - 
+* Joey Yen - 
