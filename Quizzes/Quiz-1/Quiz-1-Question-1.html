@@ -67,7 +67,7 @@
       <div id="prev"> <button class="btn btn-secondary" onclick="confirmation_box()">Back</button></div>
       <!-- this is the submit button -->
       <div class="ml-auto mr-sm-5" id="buttonsubmit"> <button class="btn btn-primary" id="thisisthesubmitbutton"
-          onclick="myFunction()">Submit</button> </div>
+          onclick="checkanswer()">Submit</button> </div>
       <!-- this is the popup button that shows up when questions are answered correctly -->
       <div class="popup">
         <span class="popuptext" id="myPopup">You got it right!</span>
@@ -88,7 +88,7 @@
   <script>
 
     // this function will check to see if the user selected the correct answer upon submission
-    function myFunction() {
+    function checkanswer() {
       firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
