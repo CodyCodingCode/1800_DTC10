@@ -88,16 +88,16 @@ function displayScores() {
           //make our button clickable - on a click event, the cost of the quiz is removed from the user's score (reflected immediately in firebase)
           mainbutton.onclick = () => addPoints(currentUser, increment);
           localNews.onclick = () => upgradePurchase(currentUser, -15, redirecttoquiz(), false);
-          socialBots.onclick = () => upgradePurchase(currentUser, -115, redirecttoquiz2(), false);
-          cabelNews.onclick = () => upgradePurchase(currentUser, -315, redirecttoquiz3(), false);
-          blogs.onclick = () => upgradePurchase(currentUser, -515, redirecttoquiz4(), false);
-          celebs.onclick = () => upgradePurchase(currentUser, -715, redirecttoquiz5(), false);
-          altnews.onclick = () => upgradePurchase(currentUser, -915, redirecttoquiz6(), false);
-          podcasts.onclick = () => upgradePurchase(currentUser, -1115, redirecttoquiz7(), false);
-          adverts.onclick = () => upgradePurchase(currentUser, -1315, redirecttoquiz8(), false);
+          socialBots.onclick = () => upgradePurchase(currentUser, -20, redirecttoquiz2(), false);
+          cabelNews.onclick = () => upgradePurchase(currentUser, -25, redirecttoquiz3(), false);
+          blogs.onclick = () => upgradePurchase(currentUser, -30, redirecttoquiz4(), false);
+          celebs.onclick = () => upgradePurchase(currentUser, -30, redirecttoquiz5(), false);
+          altnews.onclick = () => upgradePurchase(currentUser, -30, redirecttoquiz6(), false);
+          podcasts.onclick = () => upgradePurchase(currentUser, -30, redirecttoquiz7(), false);
+          adverts.onclick = () => upgradePurchase(currentUser, -30, redirecttoquiz8(), false);
           
           //Set low for testing purposes
-          managerButton.onclick = () => upgradePurchase(currentUser, -100, null, true);
+          managerButton.onclick = () => upgradePurchase(currentUser, -10, null, true);
         })
     }
   }) 
@@ -164,79 +164,79 @@ function buttonController(score) {
   }
 
   //---- Social bots upgrade
-  if (score >= 115) {
+  if (score >= 20) {
     activateButton(socialBots);
     console.log('Social Bots is Activated');
-  } else if (score < 115) {
+  } else if (score < 20) {
     deactivateButton(socialBots);
     console.log('Social Bots is Deactivated');
   }
 
   //---- Cable News Upgrade
-  if (score >= 315) {
+  if (score >= 25) {
     activateButton(cabelNews);
     console.log('Cable News is Activated');
 
-  } else if (score < 315) {
+  } else if (score < 25) {
     deactivateButton(cabelNews);
     console.log('Cable News is Deactivated');
   }
 
   //---- Blogs Upgrade
-  if (score >= 515) {
+  if (score >= 30) {
     activateButton(blogs);
     console.log('Blogs is Activated');
 
-  } else if (score < 515) {
+  } else if (score < 30) {
     deactivateButton(blogs);
     console.log('Blogs News is Deactivated');
   }
 
   //---- Celebs Upgrade
-  if (score >= 715) {
+  if (score >= 30) {
     activateButton(celebs);
     console.log('Celebreties is Activated');
 
-  } else if (score < 715) {
+  } else if (score < 30) {
     deactivateButton(celebs);
     console.log('Celebrities is Deactivated');
   }
 
   //---- Alt News Upgrade
-  if (score >= 915) {
+  if (score >= 30) {
     activateButton(altnews);
     console.log('Alternative News is Activated');
 
-  } else if (score < 915) {
+  } else if (score < 30) {
     deactivateButton(altnews);
     console.log('Alternative News is Deactivated');
   }
 
   //---- Podcasts upgrade
-  if (score >= 1115) {
+  if (score >= 30) {
     activateButton(podcasts);
     console.log('Podcasts is Activated');
 
-  } else if (score < 1115) {
+  } else if (score < 30) {
     deactivateButton(podcasts);
     console.log('Podcasts is Deactivated');
   }
 
   //---- Adverts Upgrade
-  if (score >= 1315) {
+  if (score >= 30) {
     activateButton(adverts);
     console.log('Adverts is Activated');
 
-  } else if (score < 1315) {
+  } else if (score < 30) {
     deactivateButton(adverts);
     console.log('Adverts is Deactivated');
   }
 
   //---- Campaign Manager
-  if (score >= 100) {
+  if (score >= 10) {
     activateButton(managerButton);
     console.log('Campaign Manager is Activated')
-  } else if (score < 100) {
+  } else if (score < 10) {
     deactivateButton(managerButton);
     console.log('Campaign Manager is Deactivated')
   }
