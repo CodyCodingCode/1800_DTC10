@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Incremental Game</title>
-  <link rel="stylesheet" href="leaderboard.css">
+  <link rel="stylesheet" href="/styles/leaderboard.css">
   <!-- stylesheet for navbar -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,16 +22,6 @@
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <!--Firebase Authentication API Keys -->
   <script src="/scripts/firebaseAPI_DTC10.js"></script>
-
-  <style>
-    #navbar1 {
-      padding-left: 8px;
-    }
-
-    body {
-      background-color: #f2f0e5;
-    }
-  </style>
 </head>
 
 <body>
@@ -42,7 +32,7 @@
     <a href="#news">Dashboard</a>
     <a href="gameplay.html">Game</a>
     <a href="leaderboard.html">Leaderboard</a>
-    <a href="profile_page.html">Settings</a>
+    <a href="profile-page.html">Settings</a>
     <a href="login.html">LogOut</a>
 
     <a href="javascript:void(0);" class="icon" onclick="mynavbar()">
@@ -53,28 +43,31 @@
   <div id="leaderboard">Leadership Board</div>
   <ol id="ranks"></ol>
 
-  <table id="leaders">
-    <tr>
-      <td></td>
-      <td>First Place</td>
-      <td>Second Place</td>
-      <td>Third Place</td>
-    </tr>
-    <tr id="name">
-      <td id="pname">Name of Player:</td>
+  <div id="#wrapper">
+    <table id="leaders">
+      <tr>
+        <td></td>
+        <td>First Place</td>
+        <td>Second Place</td>
+        <td>Third Place</td>
+      </tr>
+      <tr id="name">
+        <td id="pname">Name of Player:</td>
+  
+      </tr>
+      <tr id="score">
+        <td id="pscore">Player Score: </td>
+  
+      </tr>
+      <tr id="managers">
+        <td id="pmanager">Number of Managers:</td>
+  
+      </tr>
+    </table>
+  </div>
 
-    </tr>
-    <tr id="score">
-      <td id="pscore">Player Score: </td>
 
-    </tr>
-    <tr id="managers">
-      <td id="pmanager">Number of Managers:</td>
-
-    </tr>
-  </table>
-
-  <script src="leaderboard.js"></script>
+  <script src="/scripts/leaderboard.js"></script>
 </body>
 
 </html>
