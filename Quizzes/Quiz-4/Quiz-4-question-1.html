@@ -86,8 +86,8 @@
       <div class="popup">
         <span class="popuptext" id="myPopup">You got it right!</span>
       </div>
-      <a href="/Quizzes/Quiz_1/final_quiz.html">
-      <!-- When questions are answered correctly, a next/continue button will be displayed -->
+      <a href="/Quizzes/Quiz-4/Quiz-4-question-2.html">
+        <!-- When questions are answered correctly, a next/continue button will be displayed -->
         <div class="ml-auto mr-sm-5" id="buttonnext"> <button class="btn btn-success" id="next_button"
             style="display:none;">Next</button> </div>
       </a>
@@ -98,9 +98,7 @@
     © 2021 Copyright:
     <a class="text-dark">DTC10</a>
   </div>
-
   <script>
-
     // this function will check to see if the user selected the correct answer upon submission
     function myFunction() {
       firebase.auth().onAuthStateChanged(user => {
@@ -116,56 +114,43 @@
           var rightanswer1 = document.querySelector('#choice_one')
           var rightanswer2 = document.querySelector('#choice_two')
           var rightanswer3 = document.querySelector('#choice_three')
-          
+
           // if the correct answer is picked, show the popup. If not kick them out of the quiz
           if (rightanswer.checked == true) {
             if (fifth == sixth) {
               document.getElementById("next_button").style.display = "";
               popup.classList.toggle("show");
-            } 
-            else if (fifth != sixth) {
+            } else if (fifth != sixth) {
               window.location.href = "/gameplay.html";
             }
-          } 
-
-          else if (rightanswer1.checked == true) {
+          } else if (rightanswer1.checked == true) {
             if (second == sixth) {
               document.getElementById("next_button").style.display = "";
               popup.classList.toggle("show");
-            } 
-            else if (second != sixth) {
+            } else if (second != sixth) {
               window.location.href = "/gameplay.html";
             }
-          } 
-          
-          else if (rightanswer2.checked == true) {
+          } else if (rightanswer2.checked == true) {
             if (third == sixth) {
               document.getElementById("next_button").style.display = "";
               popup.classList.toggle("show");
-            } 
-            else if (third != sixth) {
+            } else if (third != sixth) {
               window.location.href = "/gameplay.html";
             }
-          } 
-          
-          else if (rightanswer3.checked == true) {
+          } else if (rightanswer3.checked == true) {
             if (fourth == sixth) {
               document.getElementById("next_button").style.display = "";
               popup.classList.toggle("show");
-            } 
-            else if (fourth != sixth) {
+            } else if (fourth != sixth) {
               window.location.href = "/gameplay.html";
             }
-          }
-          ;
+          };
         }
       });
     };
   </script>
-  
   <script src="/scripts/quizzes.js">
   </script>
-
 </body>
 
 </html>

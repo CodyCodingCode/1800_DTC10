@@ -285,31 +285,31 @@ function redirecttoquiz() {
 }
 
 function redirecttoquiz2() {
-  window.location.href="Quizzes/Quiz_2/Quiz_2_question_1.html";
+  window.location.href="Quizzes/Quiz-2/Quiz-2-question-1.html";
 }
 
 function redirecttoquiz3() {
-  window.location.href="Quizzes/Quiz_3/Quiz_3_question_1.html";
+  window.location.href="Quizzes/Quiz-3/Quiz-3-question-1.html";
 }
 
 function redirecttoquiz4() {
-  window.location.href="Quizzes/Quiz_4/Quiz_4_question_1.html";
+  window.location.href="Quizzes/Quiz-4/Quiz-4-question-1.html";
 }
 
 function redirecttoquiz5() {
-  window.location.href="Quizzes/Quiz_5/Quiz_5_question_1.html";
+  window.location.href="Quizzes/Quiz-5/Quiz-5-question-1.html";
 }
 
 function redirecttoquiz6() {
-  window.location.href="Quizzes/Quiz_6/Quiz_6_question_1.html";
+  window.location.href="Quizzes/Quiz-6/Quiz-6-question-1.html";
 }
 
 function redirecttoquiz7() {
-  window.location.href="Quizzes/Quiz_7/Quiz_7_question_1.html";
+  window.location.href="Quizzes/Quiz-7/Quiz-7-question-1.html";
 }
 
 function redirecttoquiz8() {
-  window.location.href="Quizzes/Quiz_8/Quiz_8_question_1.html";
+  window.location.href="Quizzes/Quiz-8/Quiz-8-question-1.html";
 }
 
 //-------------------------------------------
