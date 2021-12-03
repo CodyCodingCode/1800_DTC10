@@ -281,7 +281,7 @@ function logout() {
 
 // functions that redirects to a quiz page
 function redirecttoquiz() {
-  window.location.href="/Quizzes/Quiz_1/random_quiz.html";
+  window.location.href="/Quizzes/Quiz-1/Quiz-1-Question-1.html";
 }
 
 function redirecttoquiz2() {
