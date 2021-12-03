@@ -5,6 +5,8 @@
 * [Contents](#content)
 * [Resources](#resources)
 * [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
 
 ## General Info
 This browser based web application is called News Tycoon. 
@@ -122,5 +124,9 @@ Firebase hosting files:
 
 ## Contact 
 * Wil Scott - wscott53@my.bcit.ca
-* Cody Zhang - 
-* Joey Yen - 
+* Cody Zhang - codyzhang4@hotmail.com
+* Joey Yen - shenyen112@gmail.com
+
+## Acknowledgements
+* https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,200&display=swap
+* https://fonts.googleapis.com/css2?family=Montserrat&display=swap
