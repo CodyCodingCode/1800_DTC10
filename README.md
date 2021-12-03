@@ -3,6 +3,8 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Contents](#content)
+* [Resources](#resources)
+* [Contact](#contact)
 
 ## General Info
 This browser based web application is called News Tycoon. 
@@ -112,6 +114,11 @@ Firebase hosting files:
 
 
 ```
+
+## Resources
+* https://webstockreview.net/pict/getfirst - newspaper icon
+* https://icons.getbootstrap.com/ - Navbar and other icons
+* Bartlett, Bruce R. The Truth Matters: A Citizen’s Guide to Separating Facts from Lies and Stopping Fake News in Its Tracks. First edition, Ten Speed Press, 2017 was referenced in creating the educational content for this project.
 
 ## Contact 
 * Wil Scott - wscott53@my.bcit.ca
