@@ -31,7 +31,7 @@ function logout() {
   console.log("Logging out a user.");
   firebase.auth().signOut().then(() => {
     // Succesful logout
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }).catch((error) => {
     // an error occurred
     console.log("Unknown Error!")
